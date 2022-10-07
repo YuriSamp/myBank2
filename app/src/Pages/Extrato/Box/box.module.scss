@@ -1,0 +1,34 @@
+@import 'styles/variaveis';
+
+.box {
+  background-color: rgb(255, 255, 255);
+  border-radius: 0.5rem;
+  box-shadow: rgba(0, 0, 0, 0.15) 10px 10px 10px;
+  width: 23rem;
+  height: 150px;
+
+  &__top {
+    display: flex;
+    align-items: center;
+    gap: 15rem;
+  }
+
+  &__h1 {
+    font-family: 'Poppins', sans-serif;
+    margin-top: 20px;
+    margin-left: 30px;
+  }
+
+  &__h2{
+  font-family: 'Poppins', sans-serif;
+  font-size: 2.25rem;
+  margin-top: 20px;
+  margin-left: 30px;
+  }
+}
+
+.svg1 {
+  display: flex;
+  padding-top: 1rem;
+  justify-self: end;
+}

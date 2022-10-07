@@ -1,0 +1,91 @@
+@import 'styles/variaveis';
+
+.background{
+  background-color: $clr-background2;
+  height: 30vh;
+}
+
+.background2{
+  background-color: rgb(233, 231, 219);
+  height: 70vh;
+}
+
+.desk{
+  display: flex;
+  padding-left: 30rem;
+  padding-top: 8rem;
+  gap: 29rem;
+}
+
+.deskTxt{
+  font-family: 'Poppins', sans-serif; 
+}
+
+.Botao{
+  margin-left: 100rem;
+  margin-top: 2rem;
+  padding: 1rem 25px;
+  border: solid 1px;
+  border-radius: 1rem;
+  border-color: rgb(16, 46, 7);
+  font-size: 1.2rem;
+  color: #000000;
+  background-color: rgb(255, 255, 255);
+  cursor: pointer;
+} 
+
+.boxes{
+  padding-top: 8rem;
+  padding-left: 29rem;
+}
+
+.boxesdisplay{
+  display: flex;
+  gap: 2.7rem;
+}
+
+.inputs{
+  padding-left: 28rem;
+  padding-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  &__box{
+    background-color: white;
+    width: 77rem;
+    height: 4.5rem;
+    box-shadow: rgba(0, 0, 0, 0.15) 5px 5px 5px;
+  }
+  &__desk{
+    display: flex;
+  }
+  &__text1{
+    width: 33%;
+    display: flex; 
+    padding-left: 2rem;
+    padding-top: 1.6rem;
+  }
+  &__text2{
+    width: 33%;
+    display: flex; 
+    padding-top: 1.6rem;
+    justify-content: center;
+    color: green;
+  }
+  &__negative{
+    width: 33%;
+    display: flex; 
+    padding-top: 1.6rem;
+    justify-content: center;
+    color: rgb(255, 0, 0);
+  }
+  &__text3{
+    width: 33%;
+    display: flex; 
+    padding-top: 1.6rem;
+    padding-right: 2rem;
+    justify-content: flex-end;
+    gap: 1rem;
+  }
+}
+
