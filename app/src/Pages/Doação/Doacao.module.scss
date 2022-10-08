@@ -6,16 +6,8 @@
   flex-direction: column;
   background-color: $clr-background2;
   min-height: 100vh;
-  &__titulo {
-    font-size: 3rem;
-    text-align: center;
-    font-family: 'Poppins', sans-serif; 
-    padding-bottom: 1rem;
-    border-bottom: 1px solid white;
-  }
-
   &__ongs {
-    padding-top: 1rem;
+    padding-top: 10vh;
     display: grid;
     grid-template-columns: 20% 20% 20%;
     grid-gap: 2rem;
@@ -30,6 +22,7 @@
   border: 1px solid black;
   border-radius: 1rem;
   transition: ease-in-out 0.5s;
+  box-shadow: rgba(0, 0, 0, 0.15) 10px 10px 10px;
 
   &:hover{
     transform: scale(1.1);

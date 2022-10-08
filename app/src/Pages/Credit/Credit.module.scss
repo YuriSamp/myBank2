@@ -1,19 +1,28 @@
 @import 'styles/variaveis';
 
-.background{
-  background-color: $clr-background2;
-  height: 30vh;
+.cartao{
+background-color: $clr-background2;
+min-height: 30vh;
 }
 
 .background2{
+  padding-top: 7rem;
   background-color: rgb(233, 231, 219);
   height: 70vh;
+}
+
+.creditContainer{
+  height: 222px;
+  display: flex;
+  padding-left: 16rem;
+  padding-top: 5rem;
+  justify-content: space-around;
 }
 
 .desk{
   display: flex;
   padding-left: 30rem;
-  padding-top: 8rem;
+  padding-top: 2rem;
   gap: 29rem;
 }
 
@@ -21,27 +30,17 @@
   font-family: 'Poppins', sans-serif; 
 }
 
-.Botao{
-  margin-left: 100rem;
-  margin-top: 2rem;
-  padding: 1rem 25px;
-  border: solid 1px;
-  border-radius: 1rem;
-  border-color: rgb(16, 46, 7);
-  font-size: 1.2rem;
-  color: #000000;
-  background-color: rgb(255, 255, 255);
-  cursor: pointer;
-} 
-
-.boxes{
-  padding-top: 8rem;
-  padding-left: 27rem;
-}
-
-.boxesdisplay{
+.filtro{
   display: flex;
-  gap: 2.7rem;
+  align-items: center;
+  padding-left: 30rem;
+  gap: 2rem;
+  &__botoes{
+    padding: 1rem;
+    background-color: black;
+    color: white;
+    border-radius: 2rem;
+  }
 }
 
 .inputs{
@@ -89,3 +88,15 @@
   }
 }
 
+// .info{
+//   display: flex;
+//   flex-direction: column;
+//   padding-left: 31rem;
+//   padding-top: 10rem;
+//   &__titulo{
+//     font-size: 2rem;
+//   }
+//   &__fatura{
+//     font-size: 1.5rem;
+//   }
+// }

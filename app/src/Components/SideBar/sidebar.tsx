@@ -3,6 +3,7 @@ import { AiFillBank } from 'react-icons/ai';
 import { CgProfile } from 'react-icons/cg';
 import { links, social } from '../../Data/data';
 import styles from './Sidebar.module.scss';
+import {Link} from 'react-router-dom';
 
 export const Sidebar = () => {
 
@@ -13,12 +14,11 @@ export const Sidebar = () => {
     </div>
     <ul className={styles.links}>
       {links.map((link) => {
-        const { id, text, icon } = link;
-        return <li key={id}>
-          <a>
-            {icon}
-            {text}
-          </a>
+        return <li key={link.id}>
+          <Link to={link.url}>
+            {link.icon}
+            {link.text}
+          </Link>
         </li>;
       })}
     </ul>
@@ -32,9 +32,8 @@ export const Sidebar = () => {
     </div>
     <ul className={styles.socialicons}>
       {social.map((link) => {
-        const { id, icon, url } = link;
-        return( <li key={id}>
-          <a href={url} rel='noreferrer' target="_blank">{icon}</a>
+        return( <li key={link.id}>
+          <a href={link.url} rel='noreferrer' target="_blank">{link.icon}</a>
         </li>);
       })}
     </ul>

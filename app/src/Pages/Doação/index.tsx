@@ -7,9 +7,6 @@ export const Doacao = () => {
     <main>
       <Sidebar />
       <section className={styles.container}>
-        <h1 className={styles.container__titulo}>
-          Doações
-        </h1>
         <div className={styles.container__ongs}>
           {ongs.map(item => (
             <div className={styles.ongs} key={item.id}>

@@ -1,7 +1,7 @@
 import { useRecoilState, useRecoilValue } from 'recoil';
 import { BotaoModal, ListadeGastos } from 'State/atom';
 import { Sidebar } from '../../Components/SideBar/sidebar';
-import { Box } from './Box';
+import { Box } from '../../Components/Box';
 import styles from './Extrato.module.scss';
 import { Modal } from './Modal';
 

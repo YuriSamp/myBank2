@@ -32,44 +32,33 @@ import {
 export const links = [
   {
     id: 1,
-    text: 'Extrato',
+    text: 'Conta',
     icon: <AiOutlineUnorderedList />,
-    
+    url: '/',
   },
   {
     id: 2,
-    text: 'Boleto',
-    icon: <RiBarcodeLine />,
+    text: 'Doação',
+    icon: <FaRegHeart />,
+    url: '/doacao',
   },
   {
     id: 3,
-    text: 'Recarga',
-    icon: <IoPhonePortraitOutline />,
+    text: 'Cartões',
+    icon: <AiFillCreditCard />,
+    url: '/cartoes',
   },
   {
     id: 4,
-    text: 'Doação',
-    icon: <FaRegHeart />,
+    text: 'Emprestimo',
+    icon: <GiReceiveMoney />,
+    url: '/emprestimos',
   },
   {
     id: 5,
-    text: 'Cartões',
-    icon: <AiFillCreditCard />,
-  },
-  {
-    id: 6,
-    text: 'Emprestimo',
-    icon: <GiReceiveMoney />,
-  },
-  {
-    id: 7,
-    text: 'Transferencia',
-    icon: <BiTransfer/>,
-  },
-  {
-    id: 8,
     text: 'Investimento',
     icon: <BiLineChart/>,
+    url: '/',
   },
 ];
 
