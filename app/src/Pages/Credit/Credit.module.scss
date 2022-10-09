@@ -36,10 +36,17 @@ min-height: 30vh;
   padding-left: 30rem;
   gap: 2rem;
   &__botoes{
+    box-shadow: rgba(0, 0, 0, 0.15) 3px 3px 3px;
     padding: 1rem;
     background-color: black;
     color: white;
     border-radius: 2rem;
+    &__selecionado{
+      box-shadow: rgba(0, 0, 0, 0.15) 3px 3px 3px;
+      padding: 1rem;
+      border-radius: 2rem;
+      background-color: white
+    }
   }
 }
 
@@ -69,14 +76,6 @@ min-height: 30vh;
     display: flex; 
     padding-top: 1.6rem;
     justify-content: center;
-    color: green;
-  }
-  &__negative{
-    width: 33%;
-    display: flex; 
-    padding-top: 1.6rem;
-    justify-content: center;
-    color: rgb(255, 0, 0);
   }
   &__text3{
     width: 33%;

@@ -12,9 +12,9 @@
 
 .desk{
   display: flex;
-  padding-left: 30rem;
+  padding-left: 29rem;
   padding-top: 8rem;
-  gap: 29rem;
+  gap: 31rem;
 }
 
 .deskTxt{
@@ -62,22 +62,14 @@
   &__text1{
     width: 33%;
     display: flex; 
-    padding-left: 2rem;
+    padding-left: 1rem;
     padding-top: 1.6rem;
   }
   &__text2{
-    width: 33%;
+    width: 29%;
     display: flex; 
     padding-top: 1.6rem;
     justify-content: center;
-    color: green;
-  }
-  &__negative{
-    width: 33%;
-    display: flex; 
-    padding-top: 1.6rem;
-    justify-content: center;
-    color: rgb(255, 0, 0);
   }
   &__text3{
     width: 33%;
@@ -86,6 +78,13 @@
     padding-right: 2rem;
     justify-content: flex-end;
     gap: 1rem;
+  }
+  &__svg1{
+    padding-top: 1.6rem;
+    padding-left: 1rem;
+    &_dtl{
+      color: green;
+    }
   }
 }
 

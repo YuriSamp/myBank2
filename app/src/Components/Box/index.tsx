@@ -60,6 +60,7 @@ export const Box = () => {
       text: 'Balanço',
       icon: <BiDollar />,
       background: 'rgb(60, 255, 0)',
+      background2: 'rgb(230, 0, 0)',
       valor: formatador.format(Total)
     },
   ];
@@ -67,7 +68,7 @@ export const Box = () => {
   return (
     <>
       {arrow.map(item =>
-        <div className={styles.box} key={item.id} style={{ backgroundColor: item.background }}>
+        <div className={styles.box} key={item.id} style={{ backgroundColor: Total >= 0 ? item.background : item.background2 }}>
           <div className={styles.box__top}>
             <p className={styles.box__h1}>{item.text}</p>
             <div className={styles.svg1}>

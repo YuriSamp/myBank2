@@ -17,7 +17,7 @@ export const Doacao = () => {
                 <img src={item.imagem} className={styles.ongs__imagens__imagem} />
               </div>
               <div className={styles.ongs__container}>
-                <a className={styles.ongs__ancora} href={item.url}>Faça uma doação</a>
+                <a className={styles.ongs__ancora} href={item.url} target='_blank' rel='noreferrer'>Faça uma doação</a>
               </div>
             </div>
           ))}

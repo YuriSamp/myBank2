@@ -4,12 +4,6 @@ import { atom } from 'recoil';
 export const ListadeGastos = atom<ListaDeGastos[]>({
   key: 'ListadeGastos',
   default: [
-    // {
-    //   'id': '',
-    //   'Descricao': '',
-    //   'Preco': '',
-    //   'Data': new Date('')
-    // }
   ]
 });
 

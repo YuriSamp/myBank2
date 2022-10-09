@@ -4,7 +4,6 @@ export const CreditCard = () => {
   return (
     <div className={styles.card}>
       <figure className={styles.card__figure}>
-        {/* <img src="https://conta.nubank.com.br/images/nu-white.png" className={styles.card__figure__logo}></img> */}
       </figure>
       <div className={styles.card__reader}>
         <div className={styles.card__reader__risk}></div>
@@ -19,7 +18,6 @@ export const CreditCard = () => {
       </div>
       <p className={styles.card__name}>YURI SANTOS</p>
       <div className={styles.card__flag}>
-        {/* <div className={styles.card__flag__globe}></div> */}
         <div className={styles.card__flag__red}></div>
         <div className={styles.card__flag__yellow}></div>
       </div>

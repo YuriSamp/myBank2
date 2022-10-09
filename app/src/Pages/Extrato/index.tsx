@@ -4,6 +4,9 @@ import { Sidebar } from '../../Components/SideBar/sidebar';
 import { Box } from '../../Components/Box';
 import styles from './Extrato.module.scss';
 import { Modal } from './Modal';
+import { GiPayMoney, GiReceiveMoney } from 'react-icons/gi';
+import { AiOutlineCreditCard } from 'react-icons/ai';
+import { ListaDeGastos } from 'Interfaces/IListaDeGastos';
 
 export const Extrato = () => {
 
@@ -14,6 +17,14 @@ export const Extrato = () => {
   };
 
   const card = useRecoilValue(ListadeGastos);
+
+  const TestaPagamento = (card: ListaDeGastos) => {
+    return card.opcaoPagamento === 1 ?
+      card.Preco >= 0 ?
+        <GiReceiveMoney className={styles.inputs__svg1_dtl} />
+        : <GiPayMoney />
+      : <AiOutlineCreditCard />;
+  };
 
   return (
     <main>
@@ -40,10 +51,13 @@ export const Extrato = () => {
             {card.map(card =>
               <div className={styles.inputs__box} key={card.id} >
                 <div className={styles.inputs__desk}>
+                  <div className={styles.inputs__svg1}>
+                    {TestaPagamento(card)}
+                  </div>
                   <div className={styles.inputs__text1}>
                     <p>{card.Descricao}</p>
                   </div>
-                  <div className={` ${card.Preco >= 0 ? [styles.inputs__text2 ] : [styles.inputs__negative]}`}>
+                  <div className={styles.inputs__text2}>
                     <p>{'R$' + card.Preco}</p>
                   </div >
                   <div className={styles.inputs__text3}>
