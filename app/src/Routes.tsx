@@ -4,7 +4,8 @@ import { Extrato } from './Pages/Extrato';
 import { RecoilRoot } from 'recoil';
 import { Doacao } from 'Pages/Doação';
 import { Emprestimos } from 'Pages/Emprestimos';
-import { Credit } from 'Pages/Credit';
+import { Credit } from 'Pages/Cartões';
+import { Investimento } from 'Pages/Investimento';
 
 export const AppRouter = () => {
 
@@ -17,7 +18,7 @@ export const AppRouter = () => {
             <Route path='/doacao' element= {<Doacao/>} />
             <Route path='/emprestimos' element= {<Emprestimos/>} />
             <Route path='/cartoes' element= {<Credit/>} />
-            {/* <Route path='/cartoes' element= {<Credit/>} /> */}
+            <Route path='/investimento' element= {<Investimento/>} />
           </Routes>
         </Router>
       </RecoilRoot>

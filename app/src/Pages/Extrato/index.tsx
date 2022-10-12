@@ -6,11 +6,11 @@ import styles from './Extrato.module.scss';
 import { Modal } from './Modal';
 import { GiPayMoney, GiReceiveMoney } from 'react-icons/gi';
 import { AiOutlineCreditCard } from 'react-icons/ai';
-import { ListaDeGastos } from 'Interfaces/IListaDeGastos';
+import { ListaDeGastos } from 'Interfaces/ListaDeGastos';
 
 export const Extrato = () => {
 
-  const [isModalOpen, setIsModalOpen] = useRecoilState(BotaoModal);
+  const [, setIsModalOpen] = useRecoilState(BotaoModal);
 
   const openModal = () => {
     setIsModalOpen(true);

@@ -7,7 +7,7 @@ import {Link} from 'react-router-dom';
 
 export const Sidebar = () => {
 
-  return( <div className={styles.sidebar} >
+  return( <aside className={styles.sidebar} >
     <div className={styles.sidebar__header}>
       <AiFillBank className={styles.svg1} />
       <h1 className={styles.titulo}>myBank</h1>
@@ -37,6 +37,6 @@ export const Sidebar = () => {
         </li>);
       })}
     </ul>
-  </div>
+  </aside>
   );
 };

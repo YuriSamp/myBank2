@@ -58,7 +58,7 @@ export const links = [
     id: 5,
     text: 'Investimento',
     icon: <BiLineChart/>,
-    url: '/',
+    url: '/investimento',
   },
 ];
 
