@@ -57,7 +57,10 @@
     font-size: 1.1rem;
     font-family: 'Poppins', sans-serif; 
     text-decoration: none;
+    border: none;
+    background-color: transparent;
     color: rgb(0, 0, 0);
+    cursor: pointer;
     transition: ease-in-out 0.5s;
     &:hover{
       transform: scale(1.1);

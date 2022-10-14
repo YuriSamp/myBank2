@@ -7,7 +7,7 @@ import styles from './Modal.module.scss';
 import { v4 as uuid } from 'uuid';
 import { useAdicionaEvento } from 'State/Hooks/useAdicionarEntrada';
 
-export const Modal = () => {
+export const ModalInvestimento = () => {
 
   const id: string = uuid();
   const [Preco, setPreco] = useState<string>('');
@@ -36,19 +36,23 @@ export const Modal = () => {
 
   const SubmeterFormulario = (evento: React.FormEvent<HTMLFormElement>) => {
     evento.preventDefault();
-
-    const card = {
-      Preco: Number(Preco),
-      Descricao,
-      Data: testaData(Data),
-      id,
-      opcaoPagamento,
-    };
-    adicionaEvento(card);
-    setDescricao('');
-    setPreco('');
-    setData('');
-    setOpcaoPagamento(1);
+    try {
+      const card = {
+        Preco: Number(Preco),
+        Descricao,
+        Data: testaData(Data),
+        id,
+        opcaoPagamento,
+      };
+      adicionaEvento(card);
+      setDescricao('');
+      setPreco('');
+      setData('');
+      setOpcaoPagamento(1);
+      console.log(card);
+    } catch (erro) {
+      alert(erro);
+    }
   };
 
   return (

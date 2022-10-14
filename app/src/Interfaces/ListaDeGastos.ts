@@ -4,5 +4,5 @@ export interface ListaDeGastos{
   Preco : number;
   Descricao: string;
   Data: string;
-  opcaoPagamento: number;
+  opcaoPagamento?: number;
 }

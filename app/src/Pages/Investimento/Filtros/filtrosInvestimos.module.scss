@@ -1,0 +1,16 @@
+.opcoes {
+  display: flex;
+  gap: 1rem;
+
+  &__container {
+    margin: 1rem;
+    padding: 1rem;
+    background-color: #ffffff;
+    border-radius: 8px;
+    font-family: 'Montserrat', sans-serif;
+  }
+
+  &__text {
+    padding-left: 0.4rem;
+  }
+}

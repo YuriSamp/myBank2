@@ -2,44 +2,24 @@ import { Sidebar } from 'Components/SideBar/sidebar';
 import styles from './investimento.module.scss';
 import { BsCart3 } from 'react-icons/bs';
 import inv from 'Data/investimento.json';
-import { ListadeGastos } from 'State/atom';
-import { useRecoilValue } from 'recoil';
+import {ModalInvestimentos } from 'State/atom';
+import { useRecoilState} from 'recoil';
 import { useState } from 'react';
 import { Investimentos } from 'Interfaces/Investimentos';
+import { ModalInvestimento } from './Modal';
+import { Filtros } from './Filtros';
 
 export const Investimento = () => {
 
+  //TODO Fazer um modal pra comprar cada titulo, montar a pagina da caretira
+
+  const [, setIsModalOpen] = useRecoilState(ModalInvestimentos);
+
+  const openModal = () => {
+    setIsModalOpen(true);
+  };
+
   const [filtro, setFiltro] = useState<number>(0);
-
-  const FiltraCDB = (e: any) => {
-    const isChecked = e.target.checked;
-    if (isChecked === true) {
-      return setFiltro(1);
-    }
-    if (isChecked !== true) {
-      return setFiltro(0);
-    }
-  };
-
-  const FiltraLCI = (e: any) => {
-    const isChecked = e.target.checked;
-    if (isChecked === true) {
-      return setFiltro(3);
-    }
-    if (isChecked !== true) {
-      return setFiltro(0);
-    }
-  };
-
-  const FiltraTesouro = (e : any) => {
-    const isChecked = e.target.checked;
-    if (isChecked === true) {
-      return setFiltro(2);
-    }
-    if(isChecked !== true){
-      setFiltro(0);
-    }
-  };
 
   const organizaLista = (inv: Investimentos) => {
     if (filtro === 0) {
@@ -49,10 +29,10 @@ export const Investimento = () => {
       return true;
     }
   };
-
-
+ 
   return (
     <section className={styles.containerprincipal}>
+      <ModalInvestimento />
       <Sidebar />
       <div className={styles.containerprincipal__background1}>
         <div className={styles.containerprincipal__header}>
@@ -66,20 +46,9 @@ export const Investimento = () => {
         <div>
           <h3 className={styles.containerprincipal__opcoes__titulo}>Filtrar :</h3>
         </div>
-        <div className={styles.containerprincipal__opcoes}>
-          <div className={styles.containerprincipal__opcoes__container}>
-            <input type='checkbox' id='CDB'  onClick={FiltraCDB}></input>
-            <label htmlFor='CDB' className={styles.containerprincipal__opcoes__text}>CDB</label>
-          </div>
-          <div className={styles.containerprincipal__opcoes__container} >
-            <input type='checkbox' id='LCI' onClick={FiltraLCI}></input>
-            <label htmlFor='LCI' className={styles.containerprincipal__opcoes__text}>LCI</label>
-          </div>
-          <div className={styles.containerprincipal__opcoes__container}>
-            <input type='checkbox' id='TD'  onClick={FiltraTesouro} ></input>
-            <label htmlFor='TD' className={styles.containerprincipal__opcoes__text}>Tesouro Direto</label>
-          </div>
-        </div>
+        <Filtros
+          setFiltro={setFiltro}
+        />
         <div className={styles.containerprincipal__main}>
           <div className={styles.containerprincipal__filtros}>
             <div>
@@ -122,7 +91,7 @@ export const Investimento = () => {
               <div className={styles.containerprincipal__produtos__price}>
                 {item.ValorMinimo}
               </div>
-              <button className={styles.containerprincipal__produtos__button} >
+              <button className={styles.containerprincipal__produtos__button} onClick={openModal}>
                 <BsCart3 />
               </button>
             </div>

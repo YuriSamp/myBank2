@@ -8,19 +8,19 @@
   },
   {
     "id":2,
-    "titulo": "Team seas",
+    "titulo": "Team Seas",
     "imagem": "/assets/ts.png",
     "url": "https://teamseas.org"
   },
   {
     "id":3,
-    "titulo": "Instito Mario Penna",
+    "titulo": "Instituto Mário Penna",
     "imagem": "/assets/MarioPenna.png",
     "url": "https://mariopenna.org.br"
   },
   {
     "id":4,
-    "titulo": "Casa Ronald MacDonald",
+    "titulo": "Casa Ronald McDonald",
     "imagem": "/assets/CasaRonald.png",
     "url": "https://casaronald.org.br"
   },
@@ -38,7 +38,7 @@
   },
   {
     "id":7,
-    "titulo": "Defend Ukarine",
+    "titulo": "Defend Ukraine",
     "imagem": "/assets/defendUkraine.jpg",
     "url": "https://www.defendukraine.org/donate"
   },
@@ -50,7 +50,7 @@
   },
   {
     "id":9,
-    "titulo": "Savethechildren",
+    "titulo": "Save the Children",
     "imagem": "/assets/stc.svg",
     "url": "https://www.savethechildren.org"
   }
