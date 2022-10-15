@@ -57,16 +57,14 @@ export const Emprestimos = () => {
     };
     setStatus(true);
     adicionaEvento(card);
-    // console.log(card);
   };
 
-  function testaid(id: number) {
+  function testaid() {
     if (status === true) {
       !status;
       return true;
     }
   }
-  // console.log(status);
 
   return (
     <main>
@@ -94,7 +92,7 @@ export const Emprestimos = () => {
                   </li>
                 </ul>
               </div>
-              {testaid(item.id) ?
+              {testaid() ?
                 <div className={styles.box__acao}>
                   <button className={styles.box__acao__button} onClick={() => PegaEmprestimo(item)}>Pegar Emprestimo</button>
                 </div>

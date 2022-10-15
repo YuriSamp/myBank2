@@ -1,12 +1,27 @@
-import { CreditCard } from 'Components/CreditCard';
+import { CreditCard } from 'Pages/Cartões/CreditCard';
 import { Sidebar } from 'Components/SideBar/sidebar';
-import { useRecoilValue } from 'recoil';
-import { ListadeGastos } from 'State/atom';
+import { useRecoilState, useRecoilValue } from 'recoil';
+import { ListadeGastos, ModalCredito, ModalCredito2, } from 'State/atom';
 import { useState } from 'react';
 import styles from './Credit.module.scss';
 import { ListaDeGastos } from 'Interfaces/ListaDeGastos';
+import { ModalCartao } from './Modal';
+import { ModalCartao2 } from './Modal2';
 
 export const Credit = () => {
+
+  //TODO Modal para os cartões de credito
+
+  const [, setIsModalOpen] = useRecoilState(ModalCredito);
+  const [, setIsModalOpen2] = useRecoilState(ModalCredito2);
+
+  const openModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const openModal2 = () => {
+    setIsModalOpen2(true);
+  };
 
   const card = useRecoilValue(ListadeGastos);
   const [filtro, setFiltro] = useState<number>(0);
@@ -25,22 +40,53 @@ export const Credit = () => {
     return setFiltro(3);
   };
 
-  const organizaLista = (card : ListaDeGastos) => {
-    if(filtro === 0 ) {
+  const organizaLista = (card: ListaDeGastos) => {
+    if (card.opcaoPagamento === 1) {
+      return false;
+    }
+    if (filtro === 0) {
       return true;
     }
-    if ( card.opcaoPagamento === filtro) {
+    if (card.opcaoPagamento === filtro) {
       return true;
     }
   };
+
+  const cartao1 =
+  {
+    Number: '7849 2541 9731 8946',
+    DataInicial: '10/22',
+    DataFinal: '10/29'
+  }
+    ;
+
+  const cartao2 =
+  {
+    Number: '3572 9381 1538 7258',
+    DataInicial: '10/18',
+    DataFinal: '10/25'
+  }
+    ;
 
   return (
     <section >
       <div className={styles.cartao}>
         <Sidebar />
+        <ModalCartao/>
+        <ModalCartao2/>
         <div className={styles.creditContainer}>
-          <CreditCard />
-          <CreditCard />
+          <button className={styles.creditButton} onClick={openModal}>
+            <CreditCard
+              Number={cartao1.Number}
+              DataInicial={cartao1.DataInicial}
+              DataFinal={cartao1.DataFinal} />
+          </button>
+          <button className={styles.creditButton} onClick={openModal2}>
+            <CreditCard
+              Number={cartao2.Number}
+              DataInicial={cartao2.DataInicial}
+              DataFinal={cartao2.DataFinal} /> 
+          </button>
         </div>
       </div>
       <div className={styles.background2}>
@@ -78,11 +124,4 @@ export const Credit = () => {
   );
 };
 
-{/* <div className={styles.info}>
-          <h3 className={styles.info__titulo}>Fatura Atual</h3>
-          <p className={styles.info__fatura}>R$: 700</p>
-          <p >Limite Total: {limite1} </p>
-          <p >Limite disponivel: {limite1} </p>
-          <p>Fecha em: 02/Nov</p>
           
-        </div> */}

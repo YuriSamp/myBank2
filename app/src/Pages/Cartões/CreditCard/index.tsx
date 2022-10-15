@@ -1,6 +1,13 @@
 
 import styles from './Credit.module.scss';
-export const CreditCard = () => {
+
+interface Props {
+  Number : string,
+  DataInicial : string,
+  DataFinal : string
+}
+
+export const CreditCard = ({Number, DataInicial, DataFinal} : Props) => {
   return (
     <div className={styles.card}>
       <figure className={styles.card__figure}>
@@ -11,10 +18,10 @@ export const CreditCard = () => {
         <div className={styles.card__reader__risk__three}></div>
         <div className={styles.card__reader__risk__four}></div>
       </div>
-      <p className={styles.card__number}>5032 9334 3764 9846</p>
+      <p className={styles.card__number}>{Number}</p>
       <div className={styles.card__dates}>
-        <span className={styles.card__dates__first}>09/16</span>
-        <span className={styles.card__dates__second}>09/19</span>
+        <span className={styles.card__dates__first}>{DataInicial}</span>
+        <span className={styles.card__dates__second}>{DataFinal}</span>
       </div>
       <p className={styles.card__name}>YURI SANTOS</p>
       <div className={styles.card__flag}>

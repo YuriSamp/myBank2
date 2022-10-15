@@ -1,5 +1,12 @@
 @import 'styles/variaveis';
 
+.creditButton{
+  background-color: transparent;
+  border: none;
+  transform: translateY(calc(50% - 10px));
+  cursor: pointer;
+}
+
 .cartao{
 background-color: $clr-background2;
 min-height: 30vh;
@@ -15,7 +22,7 @@ min-height: 30vh;
   height: 222px;
   display: flex;
   padding-left: 16rem;
-  padding-top: 5rem;
+  padding-top: 9rem;
   justify-content: space-around;
 }
 

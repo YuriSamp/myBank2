@@ -16,7 +16,7 @@
   border-radius: 10px;
   box-shadow: rgba(0, 0, 0, 0.15) 5px 5px 5px;
   filter: drop-shadow(3px 3px 3px rgba(0, 0, 0, 0.6));
-  transform: translateY(calc(50% - 10px));
+  // transform: translateY(calc(50% - 10px));
 }
 
 .card__figure {
@@ -31,9 +31,10 @@
   letter-spacing: 4px;
   color: var(--white);
   position: absolute;
-  width: 100%;
+  // width: 100%;
   text-align: center;
   bottom: calc(-100% - 15px);
+  transform: translateX(-50px);
 }
 
 .card__reader {
@@ -148,7 +149,7 @@
   font-weight: normal;
   color: var(--white);
   letter-spacing: 2.5px;
-  transform: translate(40px, 30px);
+  transform: translate(-75px, 45px);
   position: relative;
   filter: drop-shadow(1px 1px 1px rgba(0, 0, 0, 0.3));
 }
@@ -156,7 +157,7 @@
 .card__flag {
   right: 30px;
   padding-top: 1rem;
-  transform: translate(0, -28px);
+  transform: translate(-10px, -15px);
   position: absolute;
   height: 110px;
   width: 80px;
@@ -186,7 +187,7 @@
   position: absolute;
   font-size: 0.7em;
   top: 50%;
-  transform: translate(-25px, -7px);
+  transform: translate(-45px, -7px);
   font-family: var(--masterFont);
   font-style: italic;
   font-weight: 800;

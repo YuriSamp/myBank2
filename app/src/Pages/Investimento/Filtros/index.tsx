@@ -4,6 +4,7 @@ import styles from './filtrosInvestimos.module.scss';
 interface IProps{
   setFiltro : React.Dispatch<React.SetStateAction<number>>
 }
+
 export const Filtros = ({setFiltro} : IProps ) => {
 
   const FiltraCDB = (e: any) => {
