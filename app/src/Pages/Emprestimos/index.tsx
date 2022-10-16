@@ -7,18 +7,25 @@ import { useState } from 'react';
 import { emprestimos } from 'Interfaces/Emprestimos';
 import { useSaldo } from 'State/Hooks/useSaldo';
 
+const EmprestimosTratado = Possibilidades.map(item => {
+  const novoObjeto = {
+    ...item,
+    boolean: true
+  };
+  return novoObjeto;
+});
+
 export const Emprestimos = () => {
 
-  //TODO Resolver o id do emprestimo 
-
   const Saldo = useSaldo();
-  const [status, setStatus] = useState<boolean>(true);
-  const lista = Possibilidades;
+  const [Emprestimo, setEmprestimo] = useState<emprestimos[]>(EmprestimosTratado);
   const id: string = uuid();
   const adicionaEvento = useAdicionaEvento();
 
+  Emprestimo.map(item => item.boolean);
+
   const PegaEmprestimo = (lista: emprestimos) => {
-    const opcaoPagamento =1;
+    const opcaoPagamento = 1;
     const Preco = Number(lista.Numero);
     const data = new Date();
     const Data = data.toLocaleDateString();
@@ -30,12 +37,18 @@ export const Emprestimos = () => {
       Descricao,
       opcaoPagamento
     };
-    setStatus(false);
     adicionaEvento(card);
+    const NovosEmprestimos = Emprestimo.map(item => {
+      if (item.id === lista.id) {
+        item.boolean = false;
+      }
+      return item;
+    });
+    setEmprestimo(NovosEmprestimos);
   };
 
   const PagaEmprestimo = (lista: emprestimos) => {
-    const opcaoPagamento =1;
+    const opcaoPagamento = 1;
     const PrecoVerificado = Number(lista.Numero);
 
     if (PrecoVerificado > Saldo) {
@@ -55,23 +68,22 @@ export const Emprestimos = () => {
       Descricao,
       opcaoPagamento
     };
-    setStatus(true);
     adicionaEvento(card);
+    const NovosEmprestimos = Emprestimo.map(item => {
+      if (item.id === lista.id) {
+        item.boolean = true;
+      }
+      return item;
+    });
+    setEmprestimo(NovosEmprestimos);
   };
-
-  function testaid() {
-    if (status === true) {
-      !status;
-      return true;
-    }
-  }
 
   return (
     <main>
       <Sidebar />
       <section className={styles.container}>
         <div className={styles.container__box}>
-          {lista.map(item => (
+          {EmprestimosTratado.map(item => (
             <div className={styles.box} key={item.id}>
               <div className={styles.box__top}>
                 <p className={styles.box__h1}>{item.Titulo}</p>
@@ -92,13 +104,19 @@ export const Emprestimos = () => {
                   </li>
                 </ul>
               </div>
-              {testaid() ?
+              {item.boolean ?
                 <div className={styles.box__acao}>
-                  <button className={styles.box__acao__button} onClick={() => PegaEmprestimo(item)}>Pegar Emprestimo</button>
+                  <button
+                    className={styles.box__acao__button}
+                    onClick={() => PegaEmprestimo(item)}
+                  >Pegar Emprestimo</button>
                 </div>
                 :
                 <div className={styles.box__acao}>
-                  <button className={styles.box__acao__button} onClick={() => PagaEmprestimo(item)}>Pagar Emprestimo</button>
+                  <button
+                    className={styles.box__acao__button}
+                    onClick={() => PagaEmprestimo(item)}
+                  >Pagar Emprestimo</button>
                 </div>
               }
             </div>

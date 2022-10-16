@@ -1,14 +1,17 @@
 import React from 'react';
 import { FaTimes } from 'react-icons/fa';
-import { useRecoilState } from 'recoil';
-import { BotaoModal } from 'State/atom';
+import { useRecoilState, useRecoilValue } from 'recoil';
+import { BotaoModal, LimiteCartão1, LimiteCartão2 } from 'State/atom';
 import { useState } from 'react';
 import styles from './Modal.module.scss';
 import { v4 as uuid } from 'uuid';
 import { useAdicionaEvento } from 'State/Hooks/useAdicionarEntrada';
+import { useCartaoCredito } from 'State/Hooks/useCartaoCredito';
 
 export const Modal = () => {
 
+  const Credito1 = useRecoilValue(LimiteCartão1);
+  const Credito2 = useRecoilValue(LimiteCartão2);
   const id: string = uuid();
   const [Preco, setPreco] = useState<string>('');
   const [Descricao, setDescricao] = useState<string>('');
@@ -16,6 +19,9 @@ export const Modal = () => {
   const [isModalOpen, setIsModalOpen] = useRecoilState(BotaoModal);
   const [opcaoPagamento, setOpcaoPagamento] = useState<number>(0);
   const adicionaEvento = useAdicionaEvento();
+  const GastosCartao1 = useCartaoCredito(2);
+  const GastosCartao2 = useCartaoCredito(3);
+
 
   const testaData = (data: string) => {
     const pattern = new RegExp(/^(0?[1-9]|[12][0-9]|3[01])[/](0?[1-9]|1[012])[/]\d{4}$/);
@@ -36,7 +42,6 @@ export const Modal = () => {
 
   const SubmeterFormulario = (evento: React.FormEvent<HTMLFormElement>) => {
     evento.preventDefault();
-
     const card = {
       Preco: Number(Preco),
       Descricao,
@@ -44,6 +49,20 @@ export const Modal = () => {
       id,
       opcaoPagamento,
     };
+    if (opcaoPagamento === 3) {
+      if (Number(Preco) > Credito2 || (Number(Preco) + GastosCartao2) > Credito2) {
+        alert('A compra Excede o limite de gastos');
+        throw Error('A compra Excede o limite de gastos');
+      }
+    }
+
+    if (opcaoPagamento === 2) {
+      if (Number(Preco) > Credito1 || (Number(Preco) + GastosCartao1) > Credito1) {
+        alert('A compra Excede o limite de gastos');
+        throw Error('A compra Excede o limite de gastos');
+      }
+    }
+
     adicionaEvento(card);
     setDescricao('');
     setPreco('');
@@ -74,7 +93,7 @@ export const Modal = () => {
               <label className={styles.form__opcoes__label} htmlFor="credito1">Credito - 9846</label>
             </div>
             <div>
-              <input type='radio' id='credito2' name="payment"
+              <input type='radio' id='credito2' name="payment" required
                 onChange={() => handleRadioButton(3)}
               />
               <label className={styles.form__opcoes__label} htmlFor="credito2">Credito - 7215</label>

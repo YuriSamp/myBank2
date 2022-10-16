@@ -1,46 +1,22 @@
 
 import { FaTimes } from 'react-icons/fa';
 import { useRecoilState, useRecoilValue } from 'recoil';
-import { LimiteCartão1, ListadeGastos, ModalCredito, ModalCredito2 } from 'State/atom';
+import { LimiteCartão1, ModalCredito } from 'State/atom';
+import { useCartaoCredito } from 'State/Hooks/useCartaoCredito';
+import { useFormataBRL } from 'State/Hooks/useFormataBRL';
 import styles from './ModalCredito.module.scss';
 
 
 export const ModalCartao = () => {
 
   const limite = useRecoilValue(LimiteCartão1);
-  const gastos = useRecoilValue(ListadeGastos);
-
-  function testaOpcaoPagamento(value : number | undefined) {
-    if(value ===2){
-      return true;
-    }
-  }
-
-  const formatador = new Intl.NumberFormat('pt-BR',{
-    style: 'currency',
-    currency: 'BRL',
-    minimumFractionDigits: 2
-  });
-
-  const limiteFormatado = formatador.format(limite);
-
-  const gastosNoCartao = gastos.filter((item) => testaOpcaoPagamento(item.opcaoPagamento));
-
-  const GasotsNumero = gastosNoCartao.map(item => (
-    item.Preco
-  ));
-
-  const GastosTotais =  Number(GasotsNumero.reduce((a, b) => (a) + (b), 0).toFixed(2));
-
-  console.log(GastosTotais);
+  const Credito = useCartaoCredito(2);
+  const limiteDisponivel = limite - Credito;
+  const limiteFormatado = useFormataBRL(limite);
+  const limiteDisponivelFormatado = useFormataBRL(limiteDisponivel);
+  const GastosFormatados = useFormataBRL(Credito);
 
   const [isModalOpen, setIsModalOpen] = useRecoilState(ModalCredito);
-
-  const limiteDisponivel = limite - GastosTotais;
-  const limiteDisponivelFormatado = formatador.format(limiteDisponivel);
-  const GastosFormatados = formatador.format(GastosTotais);
-
-
 
   const closeModal = () => {
     setIsModalOpen(false);

@@ -7,4 +7,5 @@ export interface emprestimos {
   Numero: number
   Descrição1: string;
   Descrição2: string;
+  boolean : boolean;
 }

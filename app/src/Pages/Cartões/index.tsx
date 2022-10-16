@@ -10,8 +10,6 @@ import { ModalCartao2 } from './Modal2';
 
 export const Credit = () => {
 
-  //TODO Modal para os cartões de credito
-
   const [, setIsModalOpen] = useRecoilState(ModalCredito);
   const [, setIsModalOpen2] = useRecoilState(ModalCredito2);
 

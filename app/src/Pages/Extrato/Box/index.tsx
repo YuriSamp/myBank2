@@ -2,6 +2,7 @@ import { AiOutlineArrowDown, AiOutlineArrowUp } from 'react-icons/ai';
 import { BiDollar } from 'react-icons/bi';
 import { useRecoilValue } from 'recoil';
 import { ListadeGastos } from 'State/atom';
+import { useFormataBRL } from 'State/Hooks/useFormataBRL';
 import styles from'./box.module.scss';
 
 export const Box = () => {
@@ -34,26 +35,20 @@ export const Box = () => {
   const SomaDosGastos = Number(Gastos.reduce((a, b) => (a) + (b), 0).toFixed(2));
   const Total = Number(Entradas.reduce((a, b) => (a) + (b), 0).toFixed(2));
 
-  const formatador = new Intl.NumberFormat('pt-BR',{
-    style: 'currency',
-    currency: 'BRL',
-    minimumFractionDigits: 2
-  });
-
   const arrow = [
     {
       id: 1,
       text: 'Entradas',
       icon: <AiOutlineArrowUp />,
       background: 'rgb(255,255,255)',
-      valor: formatador.format(SomaDasEntradas)
+      valor: useFormataBRL(SomaDasEntradas)
     },
     {
       id: 2,
       text: 'Saidas',
       icon: <AiOutlineArrowDown />,
       background: 'rgb(255,255,255)',
-      valor: formatador.format(SomaDosGastos)
+      valor: useFormataBRL(SomaDosGastos)
     },
     {
       id: 3,
@@ -61,7 +56,7 @@ export const Box = () => {
       icon: <BiDollar />,
       background: 'rgb(60, 255, 0)',
       background2: 'rgb(230, 0, 0)',
-      valor: formatador.format(Total)
+      valor: useFormataBRL(Total)
     },
   ];
 
