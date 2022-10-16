@@ -2,16 +2,17 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
 
-.background1{
-  min-height: 30vh;
-  width: 100%;
-  // background-color: $clr-background2;
-}
 
 .containerprincipal {
   padding-left: 33rem;
   height: 100vh;
   background-color: $clr-background2;
+
+  &__wrapper{
+    padding-top: 1rem;
+    display: flex;
+    flex-direction: column;
+  }
 
   &__header{
     display: flex;
@@ -29,6 +30,7 @@
   &__opcoes {
     display: flex;
     gap: 1rem;
+    
 
     &__container {
       margin: 1rem;
@@ -45,6 +47,7 @@
       font-family: 'Montserrat', sans-serif;
       color: white;
       font-weight: 400;
+      font-size: 2rem;
     }
   }
 

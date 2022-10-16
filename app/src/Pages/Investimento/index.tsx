@@ -2,24 +2,31 @@ import { Sidebar } from 'Components/SideBar/sidebar';
 import styles from './investimento.module.scss';
 import { BsCart3 } from 'react-icons/bs';
 import inv from 'Data/investimento.json';
-import {ModalInvestimentos } from 'State/atom';
-import { useRecoilState} from 'recoil';
 import { useState } from 'react';
 import { Investimentos } from 'Interfaces/Investimentos';
-import { ModalInvestimento } from './Modal';
 import { Filtros } from './Filtros';
+import { useSaldo } from 'State/Hooks/useSaldo';
+import { v4 as uuid } from 'uuid';
+import { useAdicionaEvento } from 'State/Hooks/useAdicionarEntrada';
+
+interface ListaDeEmprestimos {
+  id: number;
+  Tag: number;
+  Tipo: string;
+  Emissor: string;
+  IR: string;
+  Rentabilidade: string;
+  Vencimento: string;
+  ValorMinimo: string;
+  Valor: number;
+}
 
 export const Investimento = () => {
 
-  //TODO Fazer um modal pra comprar cada titulo, montar a pagina da caretira
-
-  const [, setIsModalOpen] = useRecoilState(ModalInvestimentos);
-
-  const openModal = () => {
-    setIsModalOpen(true);
-  };
-
   const [filtro, setFiltro] = useState<number>(0);
+  const Saldo = useSaldo();
+  const id: string = uuid();
+  const adicionaEvento = useAdicionaEvento();
 
   const organizaLista = (inv: Investimentos) => {
     if (filtro === 0) {
@@ -29,19 +36,34 @@ export const Investimento = () => {
       return true;
     }
   };
- 
+
+  const Investir = (item: ListaDeEmprestimos) => {
+    if (item.Valor > Saldo) {
+      alert('Não possui saldo suficiente para ser investido');
+      throw Error('Não possui saldo suficiente para ser investido');
+    }
+    const opcaoPagamento = 1;
+    const Preco = -Number(item.Valor);
+    const data = new Date();
+    const Data = data.toLocaleDateString();
+    const Descricao = `investido em : ${item.Tipo}`;
+    const card = {
+      id,
+      Preco,
+      Data,
+      Descricao,
+      opcaoPagamento
+    };
+    adicionaEvento(card);
+  };
+
+  console.log(Saldo);
+
   return (
     <section className={styles.containerprincipal}>
-      <ModalInvestimento />
       <Sidebar />
-      <div className={styles.containerprincipal__background1}>
-        <div className={styles.containerprincipal__header}>
-          <div className={styles.containerprincipal__titulos}>
-            <h1 className={styles.containerprincipal__titulo} >Produtos</h1>
-          </div>
-          <div className={styles.containerprincipal__titulos}>
-            <h2 className={styles.containerprincipal__titulo}>Sua Carteira</h2>
-          </div>
+      <div className={styles.containerprincipal__wrapper}>
+        <div className={styles.containerprincipal__header}> 
         </div>
         <div>
           <h3 className={styles.containerprincipal__opcoes__titulo}>Filtrar :</h3>
@@ -91,7 +113,10 @@ export const Investimento = () => {
               <div className={styles.containerprincipal__produtos__price}>
                 {item.ValorMinimo}
               </div>
-              <button className={styles.containerprincipal__produtos__button} onClick={openModal}>
+              <button
+                className={styles.containerprincipal__produtos__button}
+                onClick={() => Investir(item)}
+              >
                 <BsCart3 />
               </button>
             </div>

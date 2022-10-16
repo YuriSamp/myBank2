@@ -36,7 +36,6 @@ export const ModalDoacao = atom({
 });
 
 
-
 export const ModalExtrato = atom({
   key: 'BtnExtrato',
   default: false

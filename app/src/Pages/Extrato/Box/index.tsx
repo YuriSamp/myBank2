@@ -40,22 +40,21 @@ export const Box = () => {
       id: 1,
       text: 'Entradas',
       icon: <AiOutlineArrowUp />,
-      background: 'rgb(255,255,255)',
+      background: 'rgb(100, 109, 160)',
       valor: useFormataBRL(SomaDasEntradas)
     },
     {
       id: 2,
       text: 'Saidas',
       icon: <AiOutlineArrowDown />,
-      background: 'rgb(255,255,255)',
+      background: 'rgb(100, 109, 160)',
       valor: useFormataBRL(SomaDosGastos)
     },
     {
       id: 3,
       text: 'Balanço',
       icon: <BiDollar />,
-      background: 'rgb(60, 255, 0)',
-      background2: 'rgb(230, 0, 0)',
+      background: 'rgb(118, 92, 245)',
       valor: useFormataBRL(Total)
     },
   ];
@@ -63,7 +62,7 @@ export const Box = () => {
   return (
     <>
       {arrow.map(item =>
-        <div className={styles.box} key={item.id} style={{ backgroundColor: Total >= 0 ? item.background : item.background2 }}>
+        <div className={styles.box} key={item.id} style={{ backgroundColor: item.background}}>
           <div className={styles.box__top}>
             <p className={styles.box__h1}>{item.text}</p>
             <div className={styles.svg1}>
