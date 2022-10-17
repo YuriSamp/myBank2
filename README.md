@@ -6,9 +6,10 @@ Fiz esse projeto como uma atualização de uma ideia que pus em pratica com java
 
 link para o app na Vercel
 
-<p align="center">
+Um preview do layout que ficou:
 
-<p>
+![image](https://user-images.githubusercontent.com/103132957/196081773-dc736498-3a79-4ee3-a15a-a33da8a80273.png)
+
 
 ## Quais as dificuldades que enfrentei?
 
