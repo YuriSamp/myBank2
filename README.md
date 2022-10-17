@@ -6,7 +6,9 @@ Fiz esse projeto como uma atualização de uma ideia que pus em pratica com java
 
 link pro app na vercel: mybank-theta.vercel.app
 
-Um preview do layout que ficou:
+<p align="center">
+Um pequeno Preview do layout
+</p>
 
 ![image](https://user-images.githubusercontent.com/103132957/196081773-dc736498-3a79-4ee3-a15a-a33da8a80273.png)
 
