@@ -4,8 +4,6 @@
 
 Fiz esse projeto como uma atualização de uma ideia que pus em pratica com javaScript, fiz essa mundaça pra treinar meu TS e utilizar mais algumas coisas do ecossitema que o react disponibiliza
 
-link para o app na Vercel
-
 Um preview do layout que ficou:
 
 ![image](https://user-images.githubusercontent.com/103132957/196081773-dc736498-3a79-4ee3-a15a-a33da8a80273.png)
