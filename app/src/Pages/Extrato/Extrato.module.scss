@@ -27,7 +27,8 @@ $clr-green-total: rgb(60, 255, 0);
 
 .background2{
   background-color: $clr-background;
-  height: 70vh;
+  min-height: 70vh;
+  padding-bottom: 2rem;
 }
 
 .desk{

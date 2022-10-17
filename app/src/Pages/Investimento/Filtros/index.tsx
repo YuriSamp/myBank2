@@ -1,4 +1,5 @@
 
+// import { useState } from 'react';
 import styles from './filtrosInvestimos.module.scss';
 
 interface IProps {
@@ -6,6 +7,8 @@ interface IProps {
 }
 
 export const Filtros = ({ setFiltro }: IProps) => {
+
+  // const [isCheckedState, setIsChechekedState] = useState<boolean[]>([false,false,false]);
 
   const FiltraCDB = (e: any) => {
     const isChecked = e.target.checked;

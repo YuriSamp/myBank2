@@ -29,13 +29,14 @@ $clr-green-total: rgb(60, 255, 0);
 
 .cartao{
 background-color: $clr-background2;
-min-height: 30vh;
+height: 30vh;
 }
 
 .background2{
   padding-top: 7rem;
   background-color: $clr-background;
-  height: 70vh;
+  min-height: 70vh;
+  padding-bottom: 2rem;
 }
 
 .creditContainer{
