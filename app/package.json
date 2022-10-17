@@ -27,7 +27,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "lint": "eslint './src/**/*.{ts,tsx}' './_api/**/*.{ts,tsx}' && yamllint ./_data/**/*.yaml",
+    "lint:fix": "eslint './src/**/**/*.{ts,tsx}' './_api/**/*.{ts,tsx}' --fix && yamllint ./_data/**/*.yaml"
   },
   "eslintConfig": {
     "extends": [
