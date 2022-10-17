@@ -55,23 +55,24 @@ export const Credit = () => {
     Number: '7849 2541 9731 8946',
     DataInicial: '10/22',
     DataFinal: '10/29'
-  }
-    ;
+  };
 
   const cartao2 =
   {
     Number: '3572 9381 1538 7258',
     DataInicial: '10/18',
     DataFinal: '10/25'
-  }
-    ;
+  };
+
+  const CartaoSelecionado = styles.filtro__botoes__selecionado;
+  const EstiloPadrao = styles.filtro__botoes;
 
   return (
     <section >
       <div className={styles.cartao}>
         <Sidebar />
-        <ModalCartao/>
-        <ModalCartao2/>
+        <ModalCartao />
+        <ModalCartao2 />
         <div className={styles.creditContainer}>
           <button className={styles.creditButton} onClick={openModal}>
             <CreditCard
@@ -83,15 +84,19 @@ export const Credit = () => {
             <CreditCard
               Number={cartao2.Number}
               DataInicial={cartao2.DataInicial}
-              DataFinal={cartao2.DataFinal} /> 
+              DataFinal={cartao2.DataFinal} />
           </button>
         </div>
       </div>
       <div className={styles.background2}>
         <div className={styles.filtro}>
           <h2>Filtrar : </h2>
-          <button className={filtro === 2 ? styles.filtro__botoes__selecionado : styles.filtro__botoes} onClick={FiltraCartão}>Final 8946</button>
-          <button className={filtro === 3 ? styles.filtro__botoes__selecionado : styles.filtro__botoes} onClick={FiltraCartão2}>Final 7258</button>
+          <button
+            className={filtro === 2 ? `${CartaoSelecionado}` : `${EstiloPadrao}`}
+            onClick={FiltraCartão}>Final 8946</button>
+          <button
+            className={filtro === 3 ? `${CartaoSelecionado}` : `${EstiloPadrao}`}
+            onClick={FiltraCartão2}>Final 7258</button>
         </div>
         <div className={styles.desk}>
           <p className={styles.deskTxt}>Descrição</p>
@@ -122,4 +127,3 @@ export const Credit = () => {
   );
 };
 
-          

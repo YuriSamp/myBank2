@@ -9,10 +9,10 @@ import { useAdicionaEvento } from 'State/Hooks/useAdicionarEntrada';
 import { useSaldo } from 'State/Hooks/useSaldo';
 
 interface Props {
-  titulo: string 
+  titulo: string
 }
 
-export const Modal = ({titulo} : Props) => {
+export const Modal = ({ titulo }: Props) => {
 
   const Saldo = useSaldo();
   const id: string = uuid();
@@ -39,7 +39,7 @@ export const Modal = ({titulo} : Props) => {
     if (Number(Valor) > Saldo) {
       alert('Não possui saldo suficiente para doar');
       throw Error('Não possui saldo suficiente para doar');
-    } 
+    }
     const Descricao = titulo;
     const data = new Date();
     const Data = data.toLocaleDateString();
@@ -61,16 +61,29 @@ export const Modal = ({titulo} : Props) => {
         <h3 className={styles.form__titulo}>Valor a ser doado</h3>
         <form onSubmit={SubmeterFormulario}>
           <div className={styles.form__entrada}>
-            <input type='number' value={Valor} className={styles.form} onChange={evento => setValor(evento.target.value)} placeholder='0,00' required={true} />
+            <input
+              type='number'
+              value={Valor}
+              className={styles.form}
+              onChange={evento => setValor(evento.target.value)}
+              placeholder='0,00'
+              required={true} />
           </div>
           <div className={styles.form__opcoes}>
             <div>
-              <input type='radio' id='credito1' name="payment" required
+              <input
+                type='radio'
+                id='credito1'
+                name="payment"
+                required
                 onChange={() => handleRadioButton(2)} />
               <label className={styles.form__opcoes__label} htmlFor="credito1">Credito - 9846</label>
             </div>
             <div>
-              <input type='radio' id='credito2' name="payment"
+              <input
+                type='radio'
+                id='credito2'
+                name="payment"
                 onChange={() => handleRadioButton(3)}
               />
               <label className={styles.form__opcoes__label} htmlFor="credito2">Credito - 7215</label>

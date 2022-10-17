@@ -1,3 +1,5 @@
+@import 'styles/variaveis';
+
 .opcoes {
   display: flex;
   gap: 1rem;
@@ -5,7 +7,7 @@
   &__container {
     margin: 1rem;
     padding: 1rem;
-    background-color: #ffffff;
+    background-color: $clr-greyBackground;
     border-radius: 8px;
     font-family: 'Montserrat', sans-serif;
   }

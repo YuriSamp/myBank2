@@ -114,7 +114,7 @@
       align-items: center;
       justify-content: space-around;
       border-left: 1px solid black;
-      background-color: $white;
+      background-color: $clr-greyBackground;
       font-family: 'Montserrat', sans-serif;
     }
     &__price{
@@ -126,7 +126,7 @@
       justify-content: space-around;
       border-left: 1px solid black;
       border-right: 1px solid black;
-      background-color: $white; 
+      background-color: $clr-greyBackground; 
       font-family: 'Montserrat', sans-serif;
     }
     &__button{
@@ -135,7 +135,7 @@
       margin-bottom: 0.5rem;
       border-radius: 50%;
       border: none;
-      background-color: $clr-hover-sidebar;
+      background-color: $white;
       cursor: pointer;
     }
   }

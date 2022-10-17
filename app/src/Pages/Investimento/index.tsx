@@ -55,9 +55,8 @@ export const Investimento = () => {
       opcaoPagamento
     };
     adicionaEvento(card);
+    alert(`Você adiquiriu um ${item.Tipo} do ${item.Emissor}`);
   };
-
-  console.log(Saldo);
 
   return (
     <section className={styles.containerprincipal}>

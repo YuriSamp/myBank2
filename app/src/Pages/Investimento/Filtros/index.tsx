@@ -1,11 +1,11 @@
 
 import styles from './filtrosInvestimos.module.scss';
 
-interface IProps{
-  setFiltro : React.Dispatch<React.SetStateAction<number>>
+interface IProps {
+  setFiltro: React.Dispatch<React.SetStateAction<number>>
 }
 
-export const Filtros = ({setFiltro} : IProps ) => {
+export const Filtros = ({ setFiltro }: IProps) => {
 
   const FiltraCDB = (e: any) => {
     const isChecked = e.target.checked;
@@ -40,16 +40,31 @@ export const Filtros = ({setFiltro} : IProps ) => {
   return (
     <div className={styles.opcoes}>
       <div className={styles.opcoes__container}>
-        <input type='checkbox' id='CDB' onClick={FiltraCDB} ></input>
-        <label htmlFor='CDB' className={styles.opcoes__text} >CDB</label>
+        <input
+          type='checkbox'
+          id='CDB'
+          onClick={FiltraCDB} ></input>
+        <label
+          htmlFor='CDB'
+          className={styles.opcoes__text} >CDB</label>
       </div>
       <div className={styles.opcoes__container} >
-        <input type='checkbox' id='LCI' onClick={FiltraLCI} ></input>
-        <label htmlFor='LCI' className={styles.opcoes__text}>LCI</label>
+        <input
+          type='checkbox'
+          id='LCI'
+          onClick={FiltraLCI} ></input>
+        <label
+          htmlFor='LCI'
+          className={styles.opcoes__text}>LCI</label>
       </div>
       <div className={styles.opcoes__container}>
-        <input type='checkbox' id='TD' onClick={FiltraTesouro} ></input>
-        <label htmlFor='TD' className={styles.opcoes__text}>Tesouro Direto</label>
+        <input
+          type='checkbox'
+          id='TD'
+          onClick={FiltraTesouro} ></input>
+        <label
+          htmlFor='TD'
+          className={styles.opcoes__text}>Tesouro Direto</label>
       </div>
     </div>
   );

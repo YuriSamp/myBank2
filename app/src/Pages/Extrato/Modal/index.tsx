@@ -76,24 +76,50 @@ export const Modal = () => {
         <h3 className={styles.form__titulo}>Nova Transação</h3>
         <form onSubmit={SubmeterFormulario}>
           <div className={styles.form__entrada}>
-            <input value={Descricao} className={styles.form} onChange={evento => setDescricao(evento.target.value)} placeholder='Descricao' required={true} />
-            <input type='number' value={Preco} className={styles.form} onChange={evento => setPreco(evento.target.value)} placeholder='0,00' required={true} />
+            <input
+              value={Descricao}
+              className={styles.form}
+              onChange={evento => setDescricao(evento.target.value)}
+              placeholder='Descricao'
+              required={true} />
+            <input
+              type='number'
+              value={Preco}
+              className={styles.form}
+              onChange={evento => setPreco(evento.target.value)}
+              placeholder='0,00'
+              required={true} />
             <label className={styles.form__subtitulo}>use o sinal - (negativo) para despesas e , (virgula) para os centavos</label>
-            <input value={Data} className={styles.form} onChange={evento => setData(evento.target.value)} placeholder="dd/mm/aaaa" required={true} />
+            <input
+              value={Data}
+              className={styles.form}
+              onChange={evento => setData(evento.target.value)}
+              placeholder="dd/mm/aaaa"
+              required={true} />
           </div>
           <div className={styles.form__opcoes}>
             <div>
-              <input type='radio' id='debito' name="payment"
+              <input
+                type='radio'
+                id='debito'
+                name="payment"
                 onChange={() => handleRadioButton(1)} />
               <label className={styles.form__opcoes__label} htmlFor="debito">Debito</label>
             </div>
             <div>
-              <input type='radio' id='credito1' name="payment"
+              <input
+                type='radio'
+                id='credito1'
+                name="payment"
                 onChange={() => handleRadioButton(2)} />
               <label className={styles.form__opcoes__label} htmlFor="credito1">Credito - 9846</label>
             </div>
             <div>
-              <input type='radio' id='credito2' name="payment" required
+              <input
+                type='radio'
+                id='credito2'
+                name="payment"
+                required
                 onChange={() => handleRadioButton(3)}
               />
               <label className={styles.form__opcoes__label} htmlFor="credito2">Credito - 7215</label>

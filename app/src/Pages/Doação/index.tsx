@@ -33,7 +33,9 @@ export const Doacao = () => {
                   <img src={item.imagem} className={styles.ongs__imagens__imagem} />
                 </div>
                 <div className={styles.ongs__container}>
-                  <button className={styles.ongs__ancora} onClick={() => openModal(item.titulo)} >Faça uma doação</button>
+                  <button
+                    className={styles.ongs__ancora}
+                    onClick={() => openModal(item.titulo)} >Faça uma doação</button>
                 </div>
               </div>
             </div>
