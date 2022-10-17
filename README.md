@@ -14,7 +14,7 @@ Um preview do layout que ficou:
 As coisas mais dificeis que eu tive que lidar foi com metodos que eu desconhecia dos objetos do proprio javascript, eu nunca precisei usar tanto metodos diferentes de array, string, number e por ai vai, no fim do desenvolvimento me sinto mais seguro para os proximos obstaculos que vierem.
 
 Outra coisa que eu precisei aprender bastante foi o Recoil para gerenciar o Estado da minha aplicação, ja tinha feito um curso sobre mas eu precisei ler toda a documentação pra entender as melhores features para usar
-## Quais depencias usei no desenolvimento?
+## Quais dependencias usei no desenolvimento?
 
 <ul>
   <li>normalize.css</li>
