@@ -6,6 +6,7 @@ import { useAdicionaEvento } from 'State/Hooks/useAdicionarEntrada';
 import { useState } from 'react';
 import { emprestimos } from 'Interfaces/Emprestimos';
 import { useSaldo } from 'State/Hooks/useSaldo';
+import { useFormataBRL } from 'State/Hooks/useFormataBRL';
 
 const EmprestimosTratado = Possibilidades.map(item => {
   const novoObjeto = {
@@ -26,7 +27,7 @@ export const Emprestimos = () => {
 
   const PegaEmprestimo = (lista: emprestimos) => {
     const opcaoPagamento = 1;
-    const Preco = Number(lista.Numero);
+    const Preco = lista.Valor;
     const data = new Date();
     const Data = data.toLocaleDateString();
     const Descricao = lista.Titulo;
@@ -41,6 +42,7 @@ export const Emprestimos = () => {
     const NovosEmprestimos = Emprestimo.map(item => {
       if (item.id === lista.id) {
         item.boolean = false;
+        // item.Valor = Number(item.Valor) + Number(item.Valor)/10;
       }
       return item;
     });
@@ -49,14 +51,13 @@ export const Emprestimos = () => {
 
   const PagaEmprestimo = (lista: emprestimos) => {
     const opcaoPagamento = 1;
-    const PrecoVerificado = Number(lista.Numero);
-
-    if (PrecoVerificado > Saldo) {
+  
+    if (lista.Valor > Saldo) {
       alert('Saldo Insuficiente Para pagar o emprestimo');
       throw Error('Saldo Insuficiente Para pagar o emprestimo');
     }
 
-    const Preco = -Number(lista.Numero);
+    const Preco = -lista.Valor;
     const data = new Date();
     const Data = data.toLocaleDateString();
     const Descricao = lista.Titulo;
@@ -72,6 +73,7 @@ export const Emprestimos = () => {
     const NovosEmprestimos = Emprestimo.map(item => {
       if (item.id === lista.id) {
         item.boolean = true;
+        // item.Valor = Number(item.Valor);
       }
       return item;
     });
@@ -100,7 +102,7 @@ export const Emprestimos = () => {
                     <p>Prazo : {item.Descrição2}</p>
                   </li>
                   <li className={styles.box__descricao__lista}>
-                    <p>Valor : {item.Valor}</p>
+                    <p>Valor : {useFormataBRL(item.Valor)}</p>
                   </li>
                 </ul>
               </div>

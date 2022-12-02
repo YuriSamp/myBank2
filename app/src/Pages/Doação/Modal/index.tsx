@@ -21,14 +21,9 @@ export const Modal = ({ titulo }: Props) => {
   const [opcaoPagamento, setOpcaoPagamento] = useState<number>(0);
   const adicionaEvento = useAdicionaEvento();
 
-  const closeModal = () => {
-    setIsModalOpen(false);
-  };
+  const closeModal = () => {setIsModalOpen(false);};
 
-  const handleRadioButton = (value: number) => {
-    setOpcaoPagamento(value);
-
-  };
+  const handleRadioButton = (value: number) => {setOpcaoPagamento(value);};
 
   const SubmeterFormulario = (evento: React.FormEvent<HTMLFormElement>) => {
     evento.preventDefault();

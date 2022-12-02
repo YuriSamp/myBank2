@@ -54,12 +54,20 @@ export const Modal = () => {
         alert('A compra Excede o limite de gastos');
         throw Error('A compra Excede o limite de gastos');
       }
+      if(Number(Preco) > 0){
+        alert('não tem como receber dinheiro em credito');
+        throw Error('não tem como receber dinheiro em credito');
+      }
     }
 
     if (opcaoPagamento === 2) {
       if (Number(Preco) > Credito1 || (Number(Preco) + GastosCartao1) > Credito1) {
         alert('A compra Excede o limite de gastos');
         throw Error('A compra Excede o limite de gastos');
+      }
+      if(Number(Preco) > 0){
+        alert('não tem como receber dinheiro em credito');
+        throw Error('não tem como receber dinheiro em credito');
       }
     }
 

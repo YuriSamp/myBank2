@@ -5,29 +5,12 @@ import {
   FaTwitter,
 } from 'react-icons/fa';
 
-import {
-  AiOutlineUnorderedList,
-  AiFillCreditCard,
+import { AiOutlineUnorderedList, AiFillCreditCard} from 'react-icons/ai';
 
-} from 'react-icons/ai';
+import {GiReceiveMoney} from 'react-icons/gi';
 
-import {
-  GiReceiveMoney,
-} from 'react-icons/gi';
+import {BiLineChart,} from 'react-icons/bi';
 
-import {
-  BiLineChart,
-  BiTransfer,
-
-} from 'react-icons/bi';
-
-import {
-  RiBarcodeLine,
-} from 'react-icons/ri';
-
-import {
-  IoPhonePortraitOutline
-} from 'react-icons/io5';
 
 export const links = [
   {

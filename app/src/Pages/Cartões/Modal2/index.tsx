@@ -11,7 +11,7 @@ export const ModalCartao2 = () => {
 
   const limite = useRecoilValue(LimiteCartão2);
   const Credito = useCartaoCredito(3);
-  const limiteDisponivel = limite - Credito;
+  const limiteDisponivel = limite + Credito;
   const limiteFormatado = useFormataBRL(limite);
   const limiteDisponivelFormatado = useFormataBRL(limiteDisponivel);
   const GastosFormatados = useFormataBRL(Credito);
