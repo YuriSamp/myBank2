@@ -2,7 +2,7 @@ import { AiOutlineArrowDown, AiOutlineArrowUp } from 'react-icons/ai';
 import { BiDollar } from 'react-icons/bi';
 import { useRecoilValue } from 'recoil';
 import { ListadeGastos } from 'State/atom';
-import { useFormataBRL } from 'State/Hooks/useFormataBRL';
+import { useFormataBRL } from 'Hooks/useFormataBRL';
 import styles from'./box.module.scss';
 
 export const Box = () => {

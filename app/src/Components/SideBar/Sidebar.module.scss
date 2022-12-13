@@ -1,21 +1,12 @@
-//text
+//Variaveis
+
 $clr-purple-text: rgb(118, 92, 245);
-
-//background
-$clr-background:rgb(82, 90, 153);
-$clr-background2: rgb(13, 15, 48);
 $clr-greyBackground: rgb(100, 109, 160);
-
-//Hover 
-$clr-hover-sidebar: rgb(15, 27, 37);
+$clr-black-background: rgb(15, 27, 37);
 $clr-purple-hover:rgb(118, 92, 245);
+$clr-black-1:#FCFBF4;
 
-
-$clr-black-1 : rgb(0,0,0);
-$clr-gray-1: rgb(233, 233, 233);
-$white: rgb(236, 241, 235);
-$cller-green-dark:  rgb(0, 12, 78);
-$clr-green-total: rgb(60, 255, 0);
+//codigo
 
 
 .sidebar {
@@ -51,7 +42,6 @@ $clr-green-total: rgb(60, 255, 0);
   padding: 1.1rem 1.5rem;
   margin: 0rem 1rem;
   box-sizing: border-box;
-  border-radius: 1rem;
 }
 
 .links a svg {
@@ -62,7 +52,7 @@ $clr-green-total: rgb(60, 255, 0);
 
 .links a:hover {
   cursor: pointer;
-  background-color: $clr-hover-sidebar;
+  border-left: 1px solid  $clr-black-background;
 }
 
 .links button {
@@ -105,7 +95,7 @@ $clr-green-total: rgb(60, 255, 0);
   cursor: pointer;
   color: $clr-purple-text;
   &:hover{
-    background-color:  $clr-hover-sidebar;
+    background-color:  $clr-black-background;
   }
   &__userName{
     font-family: 'Poppins', sans-serif;

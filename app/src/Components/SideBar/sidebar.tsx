@@ -1,11 +1,12 @@
-import React from 'react';
+import {memo} from 'react';
 import { AiFillBank } from 'react-icons/ai';
 import { CgProfile } from 'react-icons/cg';
 import { links, social } from '../../Data/data';
 import styles from './Sidebar.module.scss';
 import {Link} from 'react-router-dom';
 
-export const Sidebar = () => {
+
+const MenuLateral = () => {
 
   return( <aside className={styles.sidebar} >
     <div className={styles.sidebar__header}>
@@ -40,3 +41,5 @@ export const Sidebar = () => {
   </aside>
   );
 };
+
+export const Sidebar =  memo(MenuLateral);

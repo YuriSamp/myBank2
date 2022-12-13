@@ -2,11 +2,11 @@ import { Sidebar } from 'Components/SideBar/sidebar';
 import { Possibilidades } from 'Data/emprestimos';
 import styles from './emprestimo.module.scss';
 import { v4 as uuid } from 'uuid';
-import { useAdicionaEvento } from 'State/Hooks/useAdicionarEntrada';
+import { useAdicionaEvento } from 'Hooks/useAdicionarEntrada';
 import { useState } from 'react';
 import { emprestimos } from 'Interfaces/Emprestimos';
-import { useSaldo } from 'State/Hooks/useSaldo';
-import { useFormataBRL } from 'State/Hooks/useFormataBRL';
+import { useSaldo } from 'Hooks/useSaldo';
+import { useFormataBRL } from 'Hooks/useFormataBRL';
 
 const EmprestimosTratado = Possibilidades.map(item => {
   const novoObjeto = {
@@ -42,7 +42,7 @@ export const Emprestimos = () => {
     const NovosEmprestimos = Emprestimo.map(item => {
       if (item.id === lista.id) {
         item.boolean = false;
-        // item.Valor = Number(item.Valor) + Number(item.Valor)/10;
+        item.Valor = Number(item.Valor) + Number(item.Valor)/10;
       }
       return item;
     });
@@ -73,7 +73,7 @@ export const Emprestimos = () => {
     const NovosEmprestimos = Emprestimo.map(item => {
       if (item.id === lista.id) {
         item.boolean = true;
-        // item.Valor = Number(item.Valor);
+        item.Valor = Number(item.Valor);
       }
       return item;
     });

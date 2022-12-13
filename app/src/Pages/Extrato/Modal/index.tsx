@@ -5,8 +5,8 @@ import { BotaoModal, LimiteCartão1, LimiteCartão2 } from 'State/atom';
 import { useState } from 'react';
 import styles from './Modal.module.scss';
 import { v4 as uuid } from 'uuid';
-import { useAdicionaEvento } from 'State/Hooks/useAdicionarEntrada';
-import { useCartaoCredito } from 'State/Hooks/useCartaoCredito';
+import { useAdicionaEvento } from 'Hooks/useAdicionarEntrada';
+import { useCartaoCredito } from 'Hooks/useCartaoCredito';
 
 export const Modal = () => {
 

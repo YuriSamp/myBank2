@@ -1,4 +1,4 @@
-import { ListadeGastos } from './../atom';
+import { ListadeGastos } from '../State/atom';
 import { useRecoilValue } from 'recoil';
 
 

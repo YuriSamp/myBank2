@@ -1,14 +1,11 @@
 
-// import { useState } from 'react';
-import styles from './filtrosInvestimos.module.scss';
 
+import styles from './filtrosInvestimos.module.scss';
 interface IProps {
   setFiltro: React.Dispatch<React.SetStateAction<number>>
 }
 
 export const Filtros = ({ setFiltro }: IProps) => {
-
-  // const [isCheckedState, setIsChechekedState] = useState<boolean[]>([false,false,false]);
 
   const FiltraCDB = (e: any) => {
     const isChecked = e.target.checked;

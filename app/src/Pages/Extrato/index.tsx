@@ -7,7 +7,7 @@ import { Modal } from './Modal';
 import { GiPayMoney, GiReceiveMoney } from 'react-icons/gi';
 import { AiOutlineCreditCard } from 'react-icons/ai';
 import { ListaDeGastos } from 'Interfaces/ListaDeGastos';
-import { useFormataBRL } from 'State/Hooks/useFormataBRL';
+import { useFormataBRL } from 'Hooks/useFormataBRL';
 
 export const Extrato = () => {
 

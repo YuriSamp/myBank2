@@ -5,8 +5,8 @@ import { ModalDoacao } from 'State/atom';
 import { useState } from 'react';
 import styles from './Modal.module.scss';
 import { v4 as uuid } from 'uuid';
-import { useAdicionaEvento } from 'State/Hooks/useAdicionarEntrada';
-import { useSaldo } from 'State/Hooks/useSaldo';
+import { useAdicionaEvento } from 'Hooks/useAdicionarEntrada';
+import { useSaldo } from 'Hooks/useSaldo';
 
 interface Props {
   titulo: string

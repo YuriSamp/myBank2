@@ -1,4 +1,4 @@
-import { ListaDeGastos } from '../../Interfaces/ListaDeGastos';
+import { ListaDeGastos } from '../Interfaces/ListaDeGastos';
 import { useSetRecoilState } from 'recoil';
 import { ListadeGastos } from 'State/atom';
 

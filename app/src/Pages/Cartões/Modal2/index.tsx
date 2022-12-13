@@ -2,8 +2,8 @@
 import { FaTimes } from 'react-icons/fa';
 import { useRecoilState, useRecoilValue } from 'recoil';
 import { LimiteCartão2, ModalCredito2 } from 'State/atom';
-import { useCartaoCredito } from 'State/Hooks/useCartaoCredito';
-import { useFormataBRL } from 'State/Hooks/useFormataBRL';
+import { useCartaoCredito } from 'Hooks/useCartaoCredito';
+import { useFormataBRL } from 'Hooks/useFormataBRL';
 import styles from './ModalCredito.module.scss';
 
 

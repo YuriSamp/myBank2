@@ -5,9 +5,9 @@ import inv from 'Data/investimento.json';
 import { useState } from 'react';
 import { Investimentos } from 'Interfaces/Investimentos';
 import { Filtros } from './Filtros';
-import { useSaldo } from 'State/Hooks/useSaldo';
+import { useSaldo } from 'Hooks/useSaldo';
 import { v4 as uuid } from 'uuid';
-import { useAdicionaEvento } from 'State/Hooks/useAdicionarEntrada';
+import { useAdicionaEvento } from 'Hooks/useAdicionarEntrada';
 
 interface ListaDeEmprestimos {
   id: number;
