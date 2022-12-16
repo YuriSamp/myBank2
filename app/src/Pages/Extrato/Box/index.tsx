@@ -54,7 +54,7 @@ export const Box = () => {
       id: 3,
       text: 'Balanço',
       icon: <BiDollar />,
-      background: 'rgb(118, 92, 245)',
+      background: 'rgb(100, 109, 160)',
       valor: useFormataBRL(Total)
     },
   ];

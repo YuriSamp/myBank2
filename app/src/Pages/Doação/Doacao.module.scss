@@ -4,8 +4,8 @@ $clr-purple-text: rgb(118, 92, 245);
 
 
 //background
-$clr-background:rgb(82, 90, 153);
-$clr-background2: rgb(13, 15, 48);
+$clr-background:rgb(100, 109, 160);
+$clr-background2: #364C88;
 $clr-greyBackground: rgb(100, 109, 160);
 
 
@@ -42,12 +42,11 @@ $clr-green-total: rgb(60, 255, 0);
   border: 1px solid black;
   border-radius: 1rem;
   background-color: $clr-greyBackground;
-  transition: ease-in-out 0.5s;
+  transition: ease-in-out 0.4s;
   box-shadow: rgba(0, 0, 0, 0.15) 10px 10px 10px;
 
   &:hover{
     transform: scale(1.1);
-    border-color: $clr-purple-hover;
   }
 
   &__nome {
@@ -81,7 +80,7 @@ $clr-green-total: rgb(60, 255, 0);
     background-color: transparent;
     color: rgb(0, 0, 0);
     cursor: pointer;
-    transition: ease-in-out 0.5s;
+    transition: ease-in-out 0.2s;
     &:hover{
       transform: scale(1.1);
     }

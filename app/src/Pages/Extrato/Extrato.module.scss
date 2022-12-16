@@ -4,8 +4,7 @@ $clr-purple-text: rgb(118, 92, 245);
 
 
 //background
-$clr-background:rgb(82, 90, 153);
-$clr-background2: rgb(13, 15, 48);
+$clr-background:#364C88;
 $clr-greyBackground: rgb(100, 109, 160);
 
 
@@ -21,7 +20,7 @@ $cller-green-dark:  rgb(0, 12, 78);
 $clr-green-total: rgb(60, 255, 0);
 
 .background{
-  background-color: $clr-background2;
+  background-color: $clr-background;
   height: 30vh;
 }
 
@@ -49,9 +48,9 @@ $clr-green-total: rgb(60, 255, 0);
   padding: 1rem 25px;
   border: solid 1px;
   border-radius: 1rem;
-  background-color: black;
-  color: rgb(118, 92, 245);
-  border-color: rgb(13, 15, 48);
+  background-color: rgb(100, 109, 160);
+  color: white;
+  border-color: transparent;
   font-size: 1.2rem;
   cursor: pointer;
 } 

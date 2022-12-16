@@ -1,24 +1,7 @@
-//text
-$clr-purple-text: rgb(118, 92, 245);
-
-
-
-//background
-$clr-background:rgb(82, 90, 153);
-$clr-background2: rgb(13, 15, 48);
+$clr-background:#364C88;
 $clr-greyBackground: rgb(100, 109, 160);
-
-
-//Hover 
-$clr-hover-sidebar: rgb(15, 27, 37);
-$clr-purple-hover:rgb(118, 92, 245);
-
-
-$clr-black-1 : rgb(0,0,0);
-$clr-gray-1: rgb(233, 233, 233);
 $white: rgb(236, 241, 235);
-$cller-green-dark:  rgb(0, 12, 78);
-$clr-green-total: rgb(60, 255, 0);
+
 
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
 
@@ -26,7 +9,7 @@ $clr-green-total: rgb(60, 255, 0);
 .containerprincipal {
   padding-left: 33rem;
   height: 100vh;
-  background-color: $clr-background2;
+  background-color: $clr-background;
 
   &__wrapper{
     padding-top: 1rem;
