@@ -1,0 +1,57 @@
+
+ [
+  {
+    "id":1,
+    "titulo": "GreenPeace",
+    "imagem": "/assets/greenpeace.svg",
+    "url": "https://www.greenpeace.org/brasil/"
+  },
+  {
+    "id":2,
+    "titulo": "Team Seas",
+    "imagem": "/assets/ts.png",
+    "url": "https://teamseas.org"
+  },
+  {
+    "id":3,
+    "titulo": "Instituto Mário Penna",
+    "imagem": "/assets/MarioPenna.png",
+    "url": "https://mariopenna.org.br"
+  },
+  {
+    "id":4,
+    "titulo": "Casa Ronald McDonald",
+    "imagem": "/assets/CasaRonald.png",
+    "url": "https://casaronald.org.br"
+  },
+  {
+    "id":5,
+    "titulo": "GRAACC",
+    "imagem": "/assets/GRAACC.svg",
+    "url": "https://graacc.org.br"
+  },
+  {
+    "id":6,
+    "titulo": "Beast Philanthropy",
+    "imagem": "/assets/BeastPhilanthropy.png",
+    "url": "https://www.beastphilanthropy.org"
+  },
+  {
+    "id":7,
+    "titulo": "Defend Ukraine",
+    "imagem": "/assets/defendUkraine.jpg",
+    "url": "https://www.defendukraine.org/donate"
+  },
+  {
+    "id":8,
+    "titulo": "Medico sem fronteiras",
+    "imagem": "/assets/msf.svg",
+    "url": "https://doe.msf.org.br/home#Doacoes"
+  },
+  {
+    "id":9,
+    "titulo": "Save the Children",
+    "imagem": "/assets/stc.svg",
+    "url": "https://www.savethechildren.org"
+  }
+]

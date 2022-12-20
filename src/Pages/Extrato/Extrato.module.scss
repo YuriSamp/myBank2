@@ -1,0 +1,96 @@
+$clr-background:#364C88;
+$clr-greyBackground: rgb(100, 109, 160);
+
+.background{
+  background-color: $clr-background;
+  height: 30vh;
+}
+
+.background2{
+  background-color: $clr-background;
+  min-height: 70vh;
+  padding-bottom: 2rem;
+}
+
+.desk{
+  display: flex;
+  padding-left: 29rem;
+  padding-top: 8rem;
+  gap: 31rem;
+}
+
+.deskTxt{
+  font-family: 'Poppins', sans-serif; 
+  color: white;
+}
+
+.Botao{
+  margin-left: 100rem;
+  margin-top: 2rem;
+  padding: 1rem 25px;
+  border: solid 1px;
+  border-radius: 1rem;
+  background-color: rgb(100, 109, 160);
+  color: white;
+  border-color: transparent;
+  font-size: 1.2rem;
+  cursor: pointer;
+} 
+
+.boxes{
+  padding-top: 8rem;
+  padding-left: 27rem;
+}
+
+.boxesdisplay{
+  display: flex;
+  gap: 2.7rem;
+}
+
+.inputs{
+  padding-left: 28rem;
+  padding-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  &__box{
+    background-color: $clr-greyBackground;
+    width: 77rem;
+    height: 4.5rem;
+    box-shadow: rgba(0, 0, 0, 0.15) 5px 5px 5px;
+  }
+  &__desk{
+    display: flex;
+  }
+  &__text1{
+    color: white;
+    width: 33%;
+    display: flex; 
+    padding-left: 1rem;
+    padding-top: 1.6rem;
+  }
+  &__text2{
+    color: white;
+    width: 29%;
+    display: flex; 
+    padding-top: 1.6rem;
+    justify-content: center;
+  }
+  &__text3{
+    color: white;
+    width: 33%;
+    display: flex; 
+    padding-top: 1.6rem;
+    padding-right: 2rem;
+    justify-content: flex-end;
+    gap: 1rem;
+  }
+  &__svg1{
+    padding-top: 1.6rem;
+    padding-left: 1rem;
+    &_dtl{
+      color: rgb(0, 255, 157);
+    }
+  }
+}
+
