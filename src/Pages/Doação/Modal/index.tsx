@@ -7,6 +7,7 @@ import styles from './Modal.module.scss';
 import { v4 as uuid } from 'uuid';
 import { useAdicionaEvento } from 'Hooks/useAdicionarEntrada';
 import { useSaldo } from 'Hooks/useSaldo';
+import { montaTransacao } from 'util/MontaTransacao';
 
 interface Props {
   titulo: string
@@ -19,6 +20,7 @@ export const Modal = ({ titulo }: Props) => {
   const [Valor, setValor] = useState<string>('');
   const [isModalOpen, setIsModalOpen] = useRecoilState(ModalDoacao);
   const [opcaoPagamento, setOpcaoPagamento] = useState<number>(0);
+  const [mensagemDeErro, setMensagemDeErro] = useState('');
   const AdicionaEvento = useAdicionaEvento()
 
   const closeModal = () => { setIsModalOpen(false); };
@@ -28,27 +30,18 @@ export const Modal = ({ titulo }: Props) => {
   const SubmeterFormulario = (evento: React.FormEvent<HTMLFormElement>) => {
     evento.preventDefault();
     if (Valor < '0') {
-      alert('O valor doado não pode ser negativo');
+      setMensagemDeErro('O valor doado não pode ser negativo')
       throw Error('O valor doado não pode ser negativo');
     }
+
     if (Number(Valor) > Saldo) {
-      alert('Não possui saldo suficiente para doar');
+      setMensagemDeErro('Não possui saldo suficiente para doar')
       throw Error('Não possui saldo suficiente para doar');
     }
 
-    const Descricao = titulo;
-    const data = new Date();
-    const Data = data.toLocaleDateString();
-
-    const card = {
-      Preco: -Number(Valor),
-      Descricao,
-      Data,
-      id,
-      opcaoPagamento
-    }
-
-    AdicionaEvento(card);
+    const Data = new Date().toLocaleDateString();
+    const transacao = montaTransacao(-Number(Valor), titulo, Data, id, opcaoPagamento)
+    AdicionaEvento(transacao);
     setValor('');
   };
 
@@ -62,10 +55,14 @@ export const Modal = ({ titulo }: Props) => {
               type='number'
               value={Valor}
               className={styles.form}
-              onChange={evento => setValor(evento.target.value)}
+              onChange={evento => {
+                setValor(evento.target.value)
+                setMensagemDeErro('')
+              }}
               placeholder='0,00'
               required={true} />
           </div>
+          <h3 className={styles.form__mensagemErro}>{mensagemDeErro}</h3>
           <div className={styles.form__opcoes}>
             <div>
               <input

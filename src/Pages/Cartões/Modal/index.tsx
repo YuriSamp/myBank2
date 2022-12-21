@@ -1,16 +1,24 @@
 
 import { FaTimes } from 'react-icons/fa';
 import { useRecoilState, useRecoilValue } from 'recoil';
-import { LimiteCartão1, ModalCredito } from 'State/atom';
+import { LimiteCartão1, LimiteCartão2, ModalCredito } from 'State/atom';
 import { useCartaoCredito } from 'Hooks/useCartaoCredito';
 import { useFormataBRL } from 'Hooks/useFormataBRL';
 import styles from './ModalCredito.module.scss';
 
 
-export const ModalCartao = (NumeroDoCartaoNumber: any) => {
+interface Props {
+  NumeroDoCartao: number
+}
+
+export const ModalCartao = ({ NumeroDoCartao }: Props) => {
+  console.log(NumeroDoCartao)
 
   const limite = useRecoilValue(LimiteCartão1);
-  const Credito = useCartaoCredito(NumeroDoCartaoNumber);
+  const limite2 = useRecoilValue(LimiteCartão2);
+  const Credito = useCartaoCredito(NumeroDoCartao);
+
+
   const limiteDisponivel = limite + Credito;
   const limiteFormatado = useFormataBRL(limite);
   const limiteDisponivelFormatado = useFormataBRL(limiteDisponivel);

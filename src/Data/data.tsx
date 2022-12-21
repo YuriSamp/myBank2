@@ -58,7 +58,7 @@ export const social = [
   },
   {
     id: 3,
-    url: 'https://www.linkedin.com/in/yuri-santos-5915ba1ab/',
+    url: 'https://www.linkedin.com/in/yurisamp/',
     icon: <FaLinkedin />,
   },
 ];

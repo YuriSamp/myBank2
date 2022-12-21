@@ -7,6 +7,7 @@ import styles from './Modal.module.scss';
 import { v4 as uuid } from 'uuid';
 import { useAdicionaEvento } from 'Hooks/useAdicionarEntrada';
 import { useCartaoCredito } from 'Hooks/useCartaoCredito';
+import { montaTransacao } from 'util/MontaTransacao';
 
 export const Modal = () => {
 
@@ -21,13 +22,24 @@ export const Modal = () => {
   const GastosCartao1 = useCartaoCredito(2);
   const GastosCartao2 = useCartaoCredito(3);
   const AdicionaEvento = useAdicionaEvento();
+  const [mensagemDeErro, setMensagemDeErro] = useState('');
 
 
   const testaData = (data: string) => {
     const pattern = new RegExp(/^(0?[1-9]|[12][0-9]|3[01])[/](0?[1-9]|1[012])[/]\d{4}$/);
+    const pattern2 = new RegExp(/^(0?[1-9]|[12][0-9]|3[01])(0?[1-9]|1[012])\d{4}$/);
     if (pattern.test(data) == true) {
       return data;
-    } else {
+    }
+    if (pattern2.test(data) == true) {
+      const string = ''
+      const dia = data.slice(0, 2);
+      const mes = data.slice(2, 4);
+      const ano = data.slice(4);
+      return string.concat(dia, '/', mes, '/', ano);
+    }
+    else {
+      setMensagemDeErro('Data invalida')
       throw Error('Data invalida!!');
     }
   };
@@ -50,7 +62,7 @@ export const Modal = () => {
         throw Error('A compra Excede o limite de gastos');
       }
       if (Number(Preco) > 0) {
-        alert('não tem como receber dinheiro em credito');
+        setMensagemDeErro('não tem como receber dinheiro em credito');
         throw Error('não tem como receber dinheiro em credito');
       }
     }
@@ -61,21 +73,13 @@ export const Modal = () => {
         throw Error('A compra Excede o limite de gastos');
       }
       if (Number(Preco) > 0) {
-        alert('não tem como receber dinheiro em credito');
+        setMensagemDeErro('não tem como receber dinheiro em credito');
         throw Error('não tem como receber dinheiro em credito');
       }
     }
 
-    const card = {
-      Preco: Number(Preco),
-      Descricao,
-      Data: testaData(Data),
-      id,
-      opcaoPagamento
-    }
-
-    AdicionaEvento(card);
-
+    const transacao = montaTransacao(Number(Preco), Descricao, testaData(Data), id, opcaoPagamento)
+    AdicionaEvento(transacao);
     setDescricao('');
     setPreco('');
     setData('');
@@ -91,23 +95,33 @@ export const Modal = () => {
             <input
               value={Descricao}
               className={styles.form}
-              onChange={evento => setDescricao(evento.target.value)}
+              onChange={evento => {
+                setMensagemDeErro('')
+                setDescricao(evento.target.value)
+              }}
               placeholder='Descricao'
               required={true} />
             <input
               type='number'
               value={Preco}
               className={styles.form}
-              onChange={evento => setPreco(evento.target.value)}
+              onChange={evento => {
+                setMensagemDeErro('')
+                setPreco(evento.target.value)
+              }}
               placeholder='0,00'
               required={true} />
             <label className={styles.form__subtitulo}>use o sinal - (negativo) para despesas e , (virgula) para os centavos</label>
             <input
               value={Data}
               className={styles.form}
-              onChange={evento => setData(evento.target.value)}
+              onChange={evento => {
+                setMensagemDeErro('')
+                setData(evento.target.value)
+              }}
               placeholder="dd/mm/aaaa"
               required={true} />
+            <h2 className={styles.form__mensagemErro}>{mensagemDeErro}</h2>
           </div>
           <div className={styles.form__opcoes}>
             <div>
@@ -115,6 +129,7 @@ export const Modal = () => {
                 type='radio'
                 id='debito'
                 name="payment"
+                title='debito'
                 onChange={() => handleRadioButton(1)} />
               <label className={styles.form__opcoes__label} htmlFor="debito">Debito</label>
             </div>
@@ -123,6 +138,7 @@ export const Modal = () => {
                 type='radio'
                 id='credito1'
                 name="payment"
+                title='credito1'
                 onChange={() => handleRadioButton(2)} />
               <label className={styles.form__opcoes__label} htmlFor="credito1">Credito - 9846</label>
             </div>
@@ -131,7 +147,7 @@ export const Modal = () => {
                 type='radio'
                 id='credito2'
                 name="payment"
-                required
+                title='credito2'
                 onChange={() => handleRadioButton(3)}
               />
               <label className={styles.form__opcoes__label} htmlFor="credito2">Credito - 7215</label>

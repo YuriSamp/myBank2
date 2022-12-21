@@ -7,7 +7,6 @@
   background: rgba(0, 0, 0, 0.5);
   display: grid;
   place-items: center;
-  transition: var(--transition);
   visibility: hidden;
   z-index: -1;
 }
@@ -21,7 +20,6 @@
   background: rgba(0, 0, 0, 0.5);
   display: grid;
   place-items: center;
-  transition: var(--transition);
   visibility: visible;
   z-index: 10;
 }
@@ -47,7 +45,6 @@
   cursor: pointer;
 }
 
-
 .form {
   border: solid 1px;
   background-color: rgb(255, 255, 255);
@@ -62,15 +59,22 @@
     font-size: 0.9rem;
     font-style: italic;
   }
-  &__entrada{
+  &__entrada {
     padding-top: 1rem;
     display: flex;
     flex-direction: column;
     gap: 1.25rem;
   }
 
+  &__mensagemErro {
+    padding-top: 0.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    color: red;
+  }
+
   &__botoes {
-    padding-top: 1.5rem;
+    padding-top: 1rem;
     display: flex;
     justify-content: center;
     &__salvar {
@@ -83,11 +87,11 @@
       cursor: pointer;
     }
   }
-  &__opcoes{
-    padding-top: 1rem;
+  &__opcoes {
+    padding-top: 0.7rem;
     display: flex;
     gap: 4rem;
-    &__label{
+    &__label {
       padding-left: 0.5rem;
     }
   }

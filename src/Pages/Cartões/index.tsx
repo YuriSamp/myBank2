@@ -10,6 +10,8 @@ export const Credit = () => {
 
   const [, setIsModalOpen] = useRecoilState(ModalCredito);
   const [, setIsModalOpen2] = useRecoilState(ModalCredito2);
+  const [filtro, setFiltro] = useState<number>(0);
+  const card = useRecoilValue(ListadeGastos);
 
   const openModal = () => {
     setIsModalOpen(true);
@@ -19,31 +21,18 @@ export const Credit = () => {
     setIsModalOpen2(true);
   };
 
-  const card = useRecoilValue(ListadeGastos);
-  const [filtro, setFiltro] = useState<number>(0);
-
-  const FiltraCartão = () => {
-    if (filtro === 2) {
+  const FiltraCartão = (ref: number) => {
+    if (filtro === ref) {
       return setFiltro(0);
     }
-    return setFiltro(2);
-  };
-
-  const FiltraCartão2 = () => {
-    if (filtro === 3) {
-      return setFiltro(0);
-    }
-    return setFiltro(3);
+    return setFiltro(ref);
   };
 
   const organizaLista = (card: ListaDeGastos) => {
     if (card.opcaoPagamento === 1) {
       return false;
     }
-    if (filtro === 0) {
-      return true;
-    }
-    if (card.opcaoPagamento === filtro) {
+    if (filtro === 0 || card.opcaoPagamento === filtro) {
       return true;
     }
   };
@@ -68,10 +57,8 @@ export const Credit = () => {
   return (
     <section >
       <div className={styles.cartao}>
-        <ModalCartao
-          NumeroDoCartao={2} />
-        <ModalCartao
-          NumeroDoCartao={3} />
+        <ModalCartao NumeroDoCartao={2} />
+        <ModalCartao NumeroDoCartao={3} />
         <div className={styles.creditContainer}>
           <button className={styles.creditButton} onClick={openModal}>
             <CreditCard
@@ -79,7 +66,7 @@ export const Credit = () => {
               DataInicial={cartao1.DataInicial}
               DataFinal={cartao1.DataFinal} />
           </button>
-          <button className={styles.creditButton} onClick={openModal2}>
+          <button className={styles.creditButton} onClick={openModal}>
             <CreditCard
               Number={cartao2.Number}
               DataInicial={cartao2.DataInicial}
@@ -92,10 +79,10 @@ export const Credit = () => {
           <h2>Filtrar : </h2>
           <button
             className={filtro === 2 ? `${CartaoSelecionado}` : `${EstiloPadrao}`}
-            onClick={FiltraCartão}>Final 8946</button>
+            onClick={() => FiltraCartão(2)}>Final 8946</button>
           <button
             className={filtro === 3 ? `${CartaoSelecionado}` : `${EstiloPadrao}`}
-            onClick={FiltraCartão2}>Final 7258</button>
+            onClick={() => FiltraCartão(3)}>Final 7258</button>
         </div>
         <div className={styles.desk}>
           <p className={styles.deskTxt}>Descrição</p>

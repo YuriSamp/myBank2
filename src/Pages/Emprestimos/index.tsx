@@ -6,6 +6,9 @@ import { useState } from 'react';
 import { emprestimos } from 'Interfaces/Emprestimos';
 import { useSaldo } from 'Hooks/useSaldo';
 import { useFormataBRL } from 'Hooks/useFormataBRL';
+import { montaTransacao } from 'util/MontaTransacao';
+
+//TODO Fazer os juros nos emprestimos
 
 const EmprestimosTratado = Possibilidades.map(item => {
   const novoObjeto = {
@@ -22,24 +25,11 @@ export const Emprestimos = () => {
   const id: string = uuid();
   const AdicionaEvento = useAdicionaEvento();
 
-  Emprestimo.map(item => item.boolean);
-
   const PegaEmprestimo = (lista: emprestimos) => {
-    const opcaoPagamento = 1;
-    const Preco = lista.Valor;
-    const data = new Date();
-    const Data = data.toLocaleDateString();
-    const Descricao = lista.Titulo;
 
-    const card = {
-      id,
-      Preco,
-      Data,
-      Descricao,
-      opcaoPagamento
-    }
-
-    AdicionaEvento(card);
+    const data = new Date().toLocaleDateString();
+    const Transacao = montaTransacao(lista.Valor, lista.Titulo, data, id, 1);
+    AdicionaEvento(Transacao);
 
     const NovosEmprestimos = Emprestimo.map(item => {
       if (item.id === lista.id) {
@@ -52,27 +42,15 @@ export const Emprestimos = () => {
   };
 
   const PagaEmprestimo = (lista: emprestimos) => {
-    const opcaoPagamento = 1;
 
     if (lista.Valor > Saldo) {
       alert('Saldo Insuficiente Para pagar o emprestimo');
       throw Error('Saldo Insuficiente Para pagar o emprestimo');
     }
 
-    const Preco = -lista.Valor;
-    const data = new Date();
-    const Data = data.toLocaleDateString();
-    const Descricao = lista.Titulo;
-
-    const card = {
-      id,
-      Preco,
-      Data,
-      Descricao,
-      opcaoPagamento
-    }
-
-    AdicionaEvento(card);
+    const data = new Date().toLocaleDateString();
+    const Transacao = montaTransacao(-lista.Valor, lista.Titulo, data, id, 1)
+    AdicionaEvento(Transacao);
 
     const NovosEmprestimos = Emprestimo.map(item => {
       if (item.id === lista.id) {

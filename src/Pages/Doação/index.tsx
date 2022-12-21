@@ -33,6 +33,7 @@ export const Doacao = () => {
                 <div className={styles.ongs__container}>
                   <button
                     className={styles.ongs__ancora}
+                    id=''
                     onClick={() => openModal(item.titulo)} >Faça uma doação</button>
                 </div>
               </div>

@@ -7,7 +7,7 @@ import { Filtros } from './Filtros';
 import { useSaldo } from 'Hooks/useSaldo';
 import { v4 as uuid } from 'uuid';
 import { useAdicionaEvento } from 'Hooks/useAdicionarEntrada';
-
+import { montaTransacao } from 'util/MontaTransacao';
 
 export const Investimento = () => {
 
@@ -30,21 +30,11 @@ export const Investimento = () => {
       alert('Não possui saldo suficiente para ser investido');
       throw Error('Não possui saldo suficiente para ser investido');
     }
-    const opcaoPagamento = 1;
-    const Preco = -Number(item.Valor);
-    const data = new Date();
-    const Data = data.toLocaleDateString();
+
+    const Data = new Date().toLocaleDateString();
     const Descricao = `investido em : ${item.Tipo}`;
-
-    const card = {
-      Preco,
-      Descricao,
-      Data,
-      id,
-      opcaoPagamento
-    }
-
-    AdicionaEvento(card);
+    const transacao = montaTransacao(-Number(item.Valor), Descricao, Data, id, 1)
+    AdicionaEvento(transacao);
 
     alert(`Você adiquiriu um ${item.Tipo} do ${item.Emissor}`);
   };
