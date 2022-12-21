@@ -1,0 +1,18 @@
+$clr-greyBackground: rgb(100, 109, 160);
+
+.opcoes {
+  display: flex;
+  gap: 1rem;
+
+  &__container {
+    margin: 1rem;
+    padding: 1rem;
+    background-color: $clr-greyBackground;
+    border-radius: 8px;
+    font-family: 'Montserrat', sans-serif;
+  }
+
+  &__text {
+    padding-left: 0.4rem;
+  }
+}

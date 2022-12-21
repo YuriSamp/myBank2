@@ -1,0 +1,58 @@
+//text
+$clr-purple-text: rgb(118, 92, 245);
+
+
+
+//background
+$clr-background:rgb(82, 90, 153);
+$clr-background2: rgb(13, 15, 48);
+$clr-greyBackground: rgb(100, 109, 160);
+
+
+//Hover 
+$clr-hover-sidebar: rgb(15, 27, 37);
+$clr-purple-hover:rgb(118, 92, 245);
+
+
+$clr-black-1 : rgb(0,0,0);
+$clr-gray-1: rgb(233, 233, 233);
+$white: rgb(236, 241, 235);
+$cller-green-dark:  rgb(0, 12, 78);
+$clr-green-total: rgb(60, 255, 0);
+
+.box {
+  background-color: rgb(255, 255, 255);
+  border-radius: 0.5rem;
+  box-shadow: rgba(0, 0, 0, 0.15) 10px 10px 10px;
+  width: 25rem;
+  height: 150px;
+
+  &__top {
+    display: flex;
+    align-items: center;
+    gap: 15rem;
+  }
+
+  &__h1 {
+    font-family: 'Poppins', sans-serif;
+    margin-top: 20px;
+    margin-left: 30px;
+    font-size: 1.2rem;
+    color: white;
+  }
+
+  &__h2{
+  font-family: 'Poppins', sans-serif;
+  font-size: 2.25rem;
+  margin-top: 20px;
+  margin-left: 30px;
+  color: white;
+  }
+}
+
+.svg1 {
+  display: flex;
+  padding-top: 1rem;
+  justify-self: end;
+  color: white;
+}
