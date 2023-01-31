@@ -9,6 +9,8 @@ import { v4 as uuid } from 'uuid';
 import { useAdicionaEvento } from 'Hooks/useAdicionarEntrada';
 import { montaTransacao } from 'util/MontaTransacao';
 
+//TODO terminar de escrever essa parte e testar
+
 export const Investimento = () => {
 
   const [filtro, setFiltro] = useState<number>(0);

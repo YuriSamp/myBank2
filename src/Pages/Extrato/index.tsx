@@ -6,7 +6,7 @@ import { Modal } from './Modal';
 import { GiPayMoney, GiReceiveMoney } from 'react-icons/gi';
 import { AiOutlineCreditCard } from 'react-icons/ai';
 import { ListaDeGastos } from 'Interfaces/ListaDeGastos';
-import { useFormataBRL } from 'Hooks/useFormataBRL';
+import { FormataBRL } from 'util/useFormataBRL';
 
 export const Extrato = () => {
 
@@ -57,7 +57,7 @@ export const Extrato = () => {
                     <p>{card.Descricao}</p>
                   </div>
                   <div className={styles.inputs__text2}>
-                    <p>{useFormataBRL(card.Preco)}</p>
+                    <p>{FormataBRL(card.Preco)}</p>
                   </div >
                   <div className={styles.inputs__text3}>
                     <p>{card.Data}</p>

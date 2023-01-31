@@ -7,33 +7,13 @@ interface IProps {
 
 export const Filtros = ({ setFiltro }: IProps) => {
 
-  const FiltraCDB = (e: any) => {
+  const Filtra = (e: any, investimento: number) => {
     const isChecked = e.target.checked;
     if (isChecked === true) {
-      return setFiltro(1);
+      return setFiltro(investimento);
     }
     if (isChecked !== true) {
       return setFiltro(0);
-    }
-  };
-
-  const FiltraLCI = (e: any) => {
-    const isChecked = e.target.checked;
-    if (isChecked === true) {
-      return setFiltro(3);
-    }
-    if (isChecked !== true) {
-      return setFiltro(0);
-    }
-  };
-
-  const FiltraTesouro = (e: any) => {
-    const isChecked = e.target.checked;
-    if (isChecked === true) {
-      return setFiltro(2);
-    }
-    if (isChecked !== true) {
-      setFiltro(0);
     }
   };
 
@@ -43,7 +23,7 @@ export const Filtros = ({ setFiltro }: IProps) => {
         <input
           type='checkbox'
           id='CDB'
-          onClick={FiltraCDB} ></input>
+          onClick={(e) => Filtra(e, 1)} ></input>
         <label
           htmlFor='CDB'
           className={styles.opcoes__text} >CDB</label>
@@ -52,7 +32,7 @@ export const Filtros = ({ setFiltro }: IProps) => {
         <input
           type='checkbox'
           id='LCI'
-          onClick={FiltraLCI} ></input>
+          onClick={(e) => Filtra(e, 3)} ></input>
         <label
           htmlFor='LCI'
           className={styles.opcoes__text}>LCI</label>
@@ -61,7 +41,7 @@ export const Filtros = ({ setFiltro }: IProps) => {
         <input
           type='checkbox'
           id='TD'
-          onClick={FiltraTesouro} ></input>
+          onClick={(e) => Filtra(e, 2)} ></input>
         <label
           htmlFor='TD'
           className={styles.opcoes__text}>Tesouro Direto</label>
