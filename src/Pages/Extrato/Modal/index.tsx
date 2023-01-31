@@ -8,6 +8,9 @@ import { v4 as uuid } from 'uuid';
 import { useAdicionaEvento } from 'Hooks/useAdicionarEntrada';
 import { useCartaoCredito } from 'Hooks/useCartaoCredito';
 import { montaTransacao } from 'util/MontaTransacao';
+import { testaData } from 'util/TestaData';
+
+//? Porque o valor da prop Preco é string e não number?
 
 export const Modal = () => {
 
@@ -24,26 +27,6 @@ export const Modal = () => {
   const AdicionaEvento = useAdicionaEvento();
   const [mensagemDeErro, setMensagemDeErro] = useState('');
 
-
-  const testaData = (data: string) => {
-    const pattern = new RegExp(/^(0?[1-9]|[12][0-9]|3[01])[/](0?[1-9]|1[012])[/]\d{4}$/);
-    const pattern2 = new RegExp(/^(0?[1-9]|[12][0-9]|3[01])(0?[1-9]|1[012])\d{4}$/);
-    if (pattern.test(data) == true) {
-      return data;
-    }
-    if (pattern2.test(data) == true) {
-      const string = ''
-      const dia = data.slice(0, 2);
-      const mes = data.slice(2, 4);
-      const ano = data.slice(4);
-      return string.concat(dia, '/', mes, '/', ano);
-    }
-    else {
-      setMensagemDeErro('Data invalida')
-      throw Error('Data invalida!!');
-    }
-  };
-
   const closeModal = () => {
     setIsModalOpen(false);
   };
@@ -55,10 +38,9 @@ export const Modal = () => {
   const SubmeterFormulario = (evento: React.FormEvent<HTMLFormElement>) => {
     evento.preventDefault();
 
-
     if (opcaoPagamento === 3) {
       if (Number(Preco) > Credito2 || (Number(Preco) + GastosCartao2) > Credito2) {
-        alert('A compra Excede o limite de gastos');
+        setMensagemDeErro('A compra Excede o limite de gastos');
         throw Error('A compra Excede o limite de gastos');
       }
       if (Number(Preco) > 0) {
@@ -69,7 +51,7 @@ export const Modal = () => {
 
     if (opcaoPagamento === 2) {
       if (Number(Preco) > Credito1 || (Number(Preco) + GastosCartao1) > Credito1) {
-        alert('A compra Excede o limite de gastos');
+        setMensagemDeErro('A compra Excede o limite de gastos');
         throw Error('A compra Excede o limite de gastos');
       }
       if (Number(Preco) > 0) {
@@ -78,12 +60,18 @@ export const Modal = () => {
       }
     }
 
-    const transacao = montaTransacao(Number(Preco), Descricao, testaData(Data), id, opcaoPagamento)
-    AdicionaEvento(transacao);
-    setDescricao('');
-    setPreco('');
-    setData('');
-    setOpcaoPagamento(1);
+    if (testaData(Data) !== 'Data invalida') {
+      const transacao = montaTransacao(Number(Preco), Descricao, testaData(Data), id, opcaoPagamento)
+      AdicionaEvento(transacao);
+      setDescricao('');
+      setPreco('');
+      setData('');
+      setOpcaoPagamento(1);
+    }
+    else {
+      setMensagemDeErro('Data invalida')
+      throw Error('Data invalida!!');
+    }
   };
 
   return (

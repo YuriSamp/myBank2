@@ -5,10 +5,11 @@ import { useAdicionaEvento } from 'Hooks/useAdicionarEntrada';
 import { useState } from 'react';
 import { emprestimos } from 'Interfaces/Emprestimos';
 import { useSaldo } from 'Hooks/useSaldo';
-import { useFormataBRL } from 'Hooks/useFormataBRL';
+import { FormataBRL } from 'util/useFormataBRL';
 import { montaTransacao } from 'util/MontaTransacao';
 
 //TODO Fazer os juros nos emprestimos
+//TOdO Refatorar e fazer os testes
 
 const EmprestimosTratado = Possibilidades.map(item => {
   const novoObjeto = {
@@ -83,7 +84,7 @@ export const Emprestimos = () => {
                     <p>Prazo : {item.Descrição2}</p>
                   </li>
                   <li className={styles.box__descricao__lista}>
-                    <p>Valor : {useFormataBRL(item.Valor)}</p>
+                    <p>Valor : {FormataBRL(item.Valor)}</p>
                   </li>
                 </ul>
               </div>
