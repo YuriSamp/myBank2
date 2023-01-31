@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { Sidebar } from './SideBar/sidebar';
+import { Sidebar } from '../components/SideBar';
 import { Extrato } from './Pages/Extrato';
 import { RecoilRoot } from 'recoil';
 import { Doacao } from './Pages/Doação';

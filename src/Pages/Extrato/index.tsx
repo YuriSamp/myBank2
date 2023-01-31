@@ -1,6 +1,6 @@
 import { useRecoilState, useRecoilValue } from 'recoil';
 import { BotaoModal, ListadeGastos } from 'State/atom';
-import { Box } from './Box';
+import { Box } from '../../../components/Box';
 import styles from './Extrato.module.scss';
 import { Modal } from './Modal';
 import { GiPayMoney, GiReceiveMoney } from 'react-icons/gi';
