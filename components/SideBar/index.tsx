@@ -1,7 +1,7 @@
 import { memo } from 'react';
 import { AiFillBank } from 'react-icons/ai';
 import { CgProfile } from 'react-icons/cg';
-import { links, social } from '../Data/data.jsx';
+import { links, social } from '../../src/Data/data.js';
 import styles from './Sidebar.module.scss';
 import { Link } from 'react-router-dom';
 
